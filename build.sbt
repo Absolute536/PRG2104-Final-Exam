@@ -4,5 +4,11 @@ ThisBuild / scalaVersion := "2.12.19"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "scalaFXIntro"
+    name := "scalaFXIntro",
+    libraryDependencies ++= Seq(
+      // https://mvnrepository.com/artifact/org.scalafx/scalafx
+      "org.scalafx" %% "scalafx" % "8.0.192-R14",
+      // https://mvnrepository.com/artifact/org.scalafx/scalafxml-core-sfx8
+      "org.scalafx" %% "scalafxml-core-sfx8" % "0.5"
+    )
   )
