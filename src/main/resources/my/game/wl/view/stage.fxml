@@ -27,7 +27,7 @@
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Button>
-            <Button mnemonicParsing="false" text="Score">
+            <Button mnemonicParsing="false" text="Scoreboard">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Button>
