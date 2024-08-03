@@ -8,6 +8,6 @@ import scalafx.application.JFXApp._
 import scalafx.scene.Scene
 import scalafxml.core.{FXMLLoader, NoDependencyResolver}
 */
-object MyApp extends JFXApp {
+object MainApp extends JFXApp {
 
 }
