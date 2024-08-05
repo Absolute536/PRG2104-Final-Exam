@@ -7,13 +7,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.MainMenuController">
    <center>
       <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" />
          </padding>
          <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Typer Defense" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="100.0" />
+               </VBox.margin>
+            </Text>
             <Button mnemonicParsing="false" text="Start">
                <font>
                   <Font size="14.0" />
@@ -30,7 +38,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Help">
+            <Button mnemonicParsing="false" onAction="#showHelp" text="Help">
                <font>
                   <Font size="14.0" />
                </font>
@@ -65,14 +73,4 @@
          </children>
       </VBox>
    </center>
-   <top>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Typer Defense" textAlignment="CENTER" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="36.0" />
-         </font>
-         <BorderPane.margin>
-            <Insets top="100.0" />
-         </BorderPane.margin>
-      </Text>
-   </top>
 </BorderPane>
