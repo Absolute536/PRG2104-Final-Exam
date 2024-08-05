@@ -12,3 +12,5 @@ lazy val root = (project in file("."))
       "org.scalafx" %% "scalafxml-core-sfx8" % "0.5"
     )
   )
+
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
