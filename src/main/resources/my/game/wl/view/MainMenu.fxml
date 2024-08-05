@@ -19,7 +19,7 @@
                   <Font size="36.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="100.0" />
+                  <Insets bottom="150.0" />
                </VBox.margin>
             </Text>
             <Button mnemonicParsing="false" text="Start">
