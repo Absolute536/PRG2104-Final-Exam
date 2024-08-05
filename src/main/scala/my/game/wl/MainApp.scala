@@ -11,7 +11,7 @@ object MainApp extends JFXApp {
   val mainMenu = getClass.getResource("view/MainMenu.fxml")
   val loader = new FXMLLoader(mainMenu, NoDependencyResolver)
   loader.load()
-  val main = loader.getRoot[jfxs.layout.AnchorPane]
+  val main = loader.getRoot[jfxs.layout.BorderPane]
 
   stage = new PrimaryStage {
     title = "Typer Defense"
