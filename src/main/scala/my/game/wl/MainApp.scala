@@ -8,16 +8,27 @@ import scalafx.scene.Scene
 import scalafxml.core.{FXMLLoader, NoDependencyResolver}
 
 object MainApp extends JFXApp {
-  val mainMenu = getClass.getResource("view/MainMenu.fxml")
-  val loader = new FXMLLoader(mainMenu, NoDependencyResolver)
+  val rootResource = getClass.getResource("view/Root.fxml")
+  val loader = new FXMLLoader(rootResource, NoDependencyResolver)
   loader.load()
-  val main = loader.getRoot[jfxs.layout.BorderPane]
+  val roots = loader.getRoot[jfxs.layout.BorderPane]
 
   stage = new PrimaryStage {
     title = "Typer Defense"
     scene = new Scene {
-      root = main
+      root = roots
     }
   }
+
+  def showMainMenu(): Unit = {
+    val mainMenu = getClass.getResource("view/MainMenu.fxml")
+    val loader = new FXMLLoader(mainMenu, NoDependencyResolver)
+    loader.load()
+    val main = loader.getRoot[jfxs.layout.BorderPane]
+    this.roots.setCenter(main)
+
+  }
+  showMainMenu()
+
 
 }
