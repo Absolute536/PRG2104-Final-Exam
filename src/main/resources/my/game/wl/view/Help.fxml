@@ -22,9 +22,9 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-            <Button mnemonicParsing="false" text="Exit Help" />
-          <Button mnemonicParsing="false" text="Prev"  />
-            <Button mnemonicParsing="false" text="Next" />
+            <Button mnemonicParsing="false" text="Exit Help" ButtonBar.buttonData="LEFT" />
+          <Button mnemonicParsing="false" text="Prev" ButtonBar.buttonData="RIGHT"  />
+            <Button mnemonicParsing="false" text="Next" ButtonBar.buttonData="RIGHT" />
         </buttons>
          <BorderPane.margin>
             <Insets left="30.0" right="30.0" />
