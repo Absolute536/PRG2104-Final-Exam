@@ -16,7 +16,7 @@ class MainMenuController {
   }
 
   def showHelp():Unit = {
-    val resource = getClass.getResource("Help.fxml")
+    val resource = getClass.getResource("HelpLayout.fxml")
     val loader = new FXMLLoader(resource, NoDependencyResolver)
     loader.load
     val roots = loader.getRoot[jfxs.layout.BorderPane]
