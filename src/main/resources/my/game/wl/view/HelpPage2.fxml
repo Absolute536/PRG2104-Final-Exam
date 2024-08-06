@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane id="Help1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
+<BorderPane id="Help2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
    <top>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help" textAlignment="CENTER" wrappingWidth="250.0" BorderPane.alignment="CENTER">
          <font>
@@ -34,7 +34,7 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game Rule:" BorderPane.alignment="CENTER_LEFT">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="How to Play:" BorderPane.alignment="CENTER_LEFT">
                <BorderPane.margin>
                   <Insets left="30.0" />
                </BorderPane.margin>
@@ -44,7 +44,7 @@
             </Text>
          </top>
          <bottom>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defend against enemy attacks. You lose health points when an enemy crosses the defense line. The game is over once your lives reach 0." wrappingWidth="950.0" BorderPane.alignment="CENTER_LEFT">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type the words above the enemies to shoot them. You will target the frontmost enemy upon entering the correct first character. Press the &quot;Tab&quot; key to deselect the target." wrappingWidth="950.0" BorderPane.alignment="CENTER_LEFT">
                <BorderPane.margin>
                   <Insets bottom="10.0" left="30.0" />
                </BorderPane.margin>
