@@ -15,18 +15,13 @@ class MainMenuController {
 
   }
 
-  def showHelp():Unit = {
-    val resource = getClass.getResource("HelpLayout.fxml")
-    val loader = new FXMLLoader(resource, NoDependencyResolver)
+  def showHelp(): Unit = {
+    val defaultPage = getClass.getResource("HelpPage1.fxml")
+    val loader = new FXMLLoader(defaultPage, NoDependencyResolver)
     loader.load()
     val roots = loader.getRoot[jfxs.layout.BorderPane]
     MainApp.roots.setCenter(roots)
-
-    val defaultPage = getClass.getResource("HelpPage1.fxml")
-    val pageLoader = new FXMLLoader(defaultPage, NoDependencyResolver)
-    pageLoader.load()
-    val helpPage = pageLoader.getRoot[jfxs.layout.BorderPane]
-    roots.setCenter(helpPage)
+    println(MainApp.roots.getCenter.getId)
 
   }
   def showScoreBoard(): Unit = {
