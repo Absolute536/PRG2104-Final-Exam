@@ -3,22 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane id="Help1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
-   <top>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Help" textAlignment="CENTER" wrappingWidth="250.0" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <BorderPane.margin>
-            <Insets top="25.0" />
-         </BorderPane.margin>
-      </Text>
-   </top>
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
@@ -33,29 +23,39 @@
    </bottom>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <ImageView fx:id="helpImage" fitHeight="250.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </center>
          <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game Rule:" BorderPane.alignment="CENTER_LEFT">
+            <Label fx:id="helpTitle" text="Game Rule:" BorderPane.alignment="CENTER_LEFT">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets left="30.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <bottom>
+            <Label fx:id="helpDesc" text="Defend against enemy attacks. You lose health point(s) when an enemy crosses the defense line. The game is over once your lives reach 0." wrapText="true" BorderPane.alignment="CENTER_LEFT">
                <BorderPane.margin>
                   <Insets left="30.0" />
                </BorderPane.margin>
                <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-         </top>
-         <bottom>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defend against enemy attacks. You lose health points when an enemy crosses the defense line. The game is over once your lives reach 0." wrappingWidth="950.0" BorderPane.alignment="CENTER_LEFT">
-               <BorderPane.margin>
-                  <Insets bottom="10.0" left="30.0" />
-               </BorderPane.margin>
-               <font>
                   <Font size="13.0" />
                </font>
-            </Text>
+            </Label>
          </bottom>
-         <center>
-            <ImageView fitHeight="250.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-         </center>
       </BorderPane>
    </center>
+   <top>
+      <Label text="Help" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="25.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
 </BorderPane>
