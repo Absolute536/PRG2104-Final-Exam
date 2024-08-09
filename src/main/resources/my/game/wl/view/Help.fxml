@@ -6,27 +6,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
-   <bottom>
-      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" left="30.0" right="30.0" />
-         </BorderPane.margin>
-         <children>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0">
-              <buttons>
-                  <Button mnemonicParsing="false" onAction="#handleExitHelp" text="Exit Help" ButtonBar.buttonData="LEFT" />
-                <Button mnemonicParsing="false" onAction="#previousHelpPage" text="Prev" ButtonBar.buttonData="RIGHT" />
-                  <Button mnemonicParsing="false" onAction="#nextHelpPage" text="Next" ButtonBar.buttonData="RIGHT" />
-              </buttons>
-            </ButtonBar>
-            <Label text="Page 1 of 3" />
-         </children>
-      </VBox>
-   </bottom>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -67,4 +49,16 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#handleExitHelp" text="Exit Help" ButtonBar.buttonData="LEFT" />
+          <Button mnemonicParsing="false" onAction="#previousHelpPage" text="Prev" ButtonBar.buttonData="RIGHT" />
+            <Button mnemonicParsing="false" onAction="#nextHelpPage" text="Next" ButtonBar.buttonData="RIGHT" />
+        </buttons>
+         <BorderPane.margin>
+            <Insets left="30.0" right="30.0" />
+         </BorderPane.margin>
+      </ButtonBar>
+   </bottom>
 </BorderPane>

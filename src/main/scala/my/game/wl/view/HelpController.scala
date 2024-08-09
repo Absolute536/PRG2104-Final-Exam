@@ -18,37 +18,46 @@ class HelpController (
                        private val helpDesc: Label
                      ) {
 
-  val currentDesc: StringProperty = new StringProperty(helpDesc.getText) // retrieve current help description when the controller is initialised
+  private val currentHelpTitle: StringProperty = new StringProperty(helpTitle.getText)
+  helpTitle.text <== currentHelpTitle
+  private val currentDesc: StringProperty = new StringProperty(helpDesc.getText) // retrieve current help description when the controller is initialised
   helpDesc.text <== currentDesc
 
+
+  val helpTitles: Array[String] = Array("Game Rules: ", "How to Play: ", "Difficulty Guide: ")
   val helpDescriptions: Array[String] = Array(
     "Defend against enemy attacks. You lose health point(s) when an enemy crosses the defense line. The game is over once your lives reach 0.",
     "Type the words above the enemies to shoot them. You will target the front-most enemy for the first matching character entered. Press the \"Tab\" key to deselect the target.",
     "Easy: 0.75 score multiplier\nMedium: 1.00 score multiplier\nHard: 1.25 score multiplier")
 
+  // Hmm, maybe we can put these in case class?
 
   def handleExitHelp(): Unit = {
     MainApp.showMainMenu()
   }
 
   def previousHelpPage(): Unit = {
-    if (currentDesc.value != helpDescriptions(0)) {
-      if (currentDesc.value == helpDescriptions(1)){
+    if (currentHelpTitle.value != helpTitles(0)) {
+      if (currentHelpTitle.value == helpTitles(1)) {
+        currentHelpTitle.setValue(helpTitles(0))
         currentDesc.setValue(helpDescriptions(0))
       }
       else {
+        currentHelpTitle.setValue(helpTitles(1))
         currentDesc.setValue(helpDescriptions(1))
       }
     }
   }
 
   def nextHelpPage(): Unit = {
-    if (currentDesc.value != helpDescriptions(2)) {
-      if (currentDesc.value == helpDescriptions(0)){
-        currentDesc.setValue(helpDescriptions(1))
+    if (currentHelpTitle.value != helpTitles(2)) {
+      if (currentHelpTitle.value == helpTitles(1)) {
+        currentHelpTitle.setValue(helpTitles(2))
+        currentDesc.setValue(helpDescriptions(2))
       }
       else {
-        currentDesc.setValue(helpDescriptions(2))
+        currentHelpTitle.setValue(helpTitles(1))
+        currentDesc.setValue(helpDescriptions(1))
       }
     }
   }
