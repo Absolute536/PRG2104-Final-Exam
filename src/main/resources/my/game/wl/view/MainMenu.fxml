@@ -30,7 +30,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#showHelp" text="Help">
+            <Button mnemonicParsing="false" onAction="#handleHelp" text="Help">
                <font>
                   <Font size="14.0" />
                </font>
