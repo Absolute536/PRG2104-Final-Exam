@@ -14,36 +14,54 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER">
+            <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Label text="Label">
+                  <Label text="Background Music:">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <RadioButton mnemonicParsing="false" text="RadioButton">
+                  <RadioButton mnemonicParsing="false" onAction="#toggleBackgroundMusic" selected="true" text="On">
                      <toggleGroup>
-                        <ToggleGroup fx:id="GameSound" />
+                        <ToggleGroup fx:id="backgroundMusic" />
                      </toggleGroup></RadioButton>
-                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$GameSound" />
+                  <RadioButton mnemonicParsing="false" text="Off" toggleGroup="$backgroundMusic" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER">
+            <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Label text="Label">
+                  <Label text="Sound Effect:">
+                     <HBox.margin>
+                        <Insets right="80.0" />
+                     </HBox.margin>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" selected="true" text="On">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="GameSound1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Off" toggleGroup="$GameSound1" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Label text="Typing Sound:">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <RadioButton mnemonicParsing="false" text="RadioButton">
+                  <RadioButton mnemonicParsing="false" selected="true" text="Typing Sound 1">
                      <toggleGroup>
                         <ToggleGroup fx:id="KeyboardSound" />
                      </toggleGroup></RadioButton>
-                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$KeyboardSound" />
-                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$KeyboardSound" />
+                  <RadioButton mnemonicParsing="false" text="Typing Sound 2" toggleGroup="$KeyboardSound" />
+                  <RadioButton mnemonicParsing="false" text="Typing Sound 3" toggleGroup="$KeyboardSound" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
