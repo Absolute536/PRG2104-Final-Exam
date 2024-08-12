@@ -46,7 +46,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Settings">
+            <Button mnemonicParsing="false" onAction="#showSettings" text="Settings">
                <font>
                   <Font size="14.0" />
                </font>
