@@ -24,7 +24,9 @@ class HelpController (
     "Defend against enemy attacks. You lose health point(s) when an enemy crosses the defense line. The game is over once your lives reach 0.",
     "Type the words above the enemies to shoot them. You will target the front-most enemy for the first matching character entered. Press the \"Tab\" key to deselect the target.",
     "Easy: 0.75 score multiplier\nMedium: 1.00 score multiplier\nHard: 1.25 score multiplier")
-
+  val helpImages: Array[Image] = Array(
+    new Image(getClass.getResource("../../../../images/Screenshot (19).png").toString)
+  )
   // Hmm, maybe we can put these in case class?
 
   def handleExitHelp(): Unit = {
@@ -53,6 +55,7 @@ class HelpController (
       else {
         currentHelpTitle.setValue(helpTitles(1))
         currentDesc.setValue(helpDescriptions(1))
+        helpImage.image = helpImages(0)
       }
     }
   }
