@@ -6,10 +6,15 @@ class Sound {
   val backgroundMusic: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/test.mp3").toString))
   val soundEffect: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/test2.mp3").toString))
   var typingSound: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/test2.mp3").toString))
-
+  val typingSounds: Array[Media] = Array(
+    new Media(getClass.getResource("../../../../media/test2.mp3").toString),
+    new Media(getClass.getResource("../../../../media/test2.mp3").toString),
+    new Media(getClass.getResource("../../../../media/test2.mp3").toString)
+  )
+  backgroundMusic.autoPlay = true
 
   def playBackgroundMusic(): Unit = {
-    backgroundMusic.autoPlay = true
+    backgroundMusic.play()
     backgroundMusic.cycleCount = MediaPlayer.Indefinite
   }
 
@@ -29,8 +34,8 @@ class Sound {
     soundEffect.volume = 1.0
   }
 
-  def setTypingSound(sound: Media): Unit = {
-    typingSound = new MediaPlayer(sound)
+  def setTypingSound(num: Int): Unit = {
+    typingSound = new MediaPlayer(typingSounds(num))
   }
 
   def playTypingSound(): Unit = {
