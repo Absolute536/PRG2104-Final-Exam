@@ -14,15 +14,17 @@ class HelpController (
                      ) {
 
   val helpTitles: Array[String] = Array("Game Rule:", "How to Play:", "Difficulty Guide:")
+
   val helpDescriptions: Array[String] = Array(
     "Defend against enemy attacks. You lose health point(s) when an enemy crosses the defense line. The game is over once your lives reach 0.",
     "Type the words above the enemies to shoot them. You will target the front-most enemy for the first matching character entered. Press the \"Tab\" key to deselect the target.",
     "Easy: 0.75 score multiplier\nMedium: 1.00 score multiplier\nHard: 1.25 score multiplier")
+
   val helpImages: Array[Image] = Array(
     new Image(getClass.getResource("../../../../images/G.png").toString),
-    new Image(getClass.getResource("../../../../images/Screenshot (19).png").toString)
+    new Image(getClass.getResource("../../../../images/Screenshot (19).png").toString),
+    new Image(getClass.getResource("../../../../images/Screenshot (23).png").toString)
   )
-  // Hmm, maybe we can put these in case class?
 
   def handleExitHelp(): Unit = {
     MainApp.showMainMenu()
@@ -38,6 +40,7 @@ class HelpController (
       else {
         helpTitle.setText(helpTitles(1))
         helpDesc.setText(helpDescriptions(1))
+        helpImage.image = helpImages(1)
       }
     }
   }
@@ -52,6 +55,7 @@ class HelpController (
       else {
         helpTitle.setText(helpTitles(2))
         helpDesc.setText(helpDescriptions(2))
+        helpImage.image = helpImages(2)
       }
     }
   }
