@@ -38,7 +38,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Scoreboard">
+            <Button mnemonicParsing="false" onAction="#showScoreBoard" text="Scoreboard">
                <font>
                   <Font size="14.0" />
                </font>

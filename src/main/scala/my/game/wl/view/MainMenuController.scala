@@ -21,7 +21,11 @@ class MainMenuController {
     MainApp.roots.setCenter(roots)
   }
   def showScoreBoard(): Unit = {
-
+    val score = getClass.getResource("ScoreBoard.fxml")
+    val loader = new FXMLLoader(score, NoDependencyResolver)
+    loader.load()
+    val scoreboard = loader.getRoot[jfxs.layout.BorderPane]
+    MainApp.roots.setCenter(scoreboard)
   }
 
   def showSettings(): Unit = {
