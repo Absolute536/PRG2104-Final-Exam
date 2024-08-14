@@ -11,6 +11,7 @@ import my.game.wl.util.Sound
 import scalafx.collections.ObservableBuffer
 
 import scala.io.Source
+import scala.util.{Failure, Success, Try}
 
 object MainApp extends JFXApp {
 
@@ -41,10 +42,14 @@ object MainApp extends JFXApp {
 
   val scores = new ObservableBuffer[Score]()
   // Maybe we should move it to some other place
-  val scoreBoardFile = Source.fromFile(getClass.getResource("../../../TopScore.txt").toURI)
-  for (line <- scoreBoardFile.getLines().map(l => l.split(","))) {
-    scores += new Score(line(0), line(1).toInt, line(2))
+  val scoreBoardFile = Try({Source.fromFile(getClass.getResource("../../../TopScore.txt").toURI)})
+  scoreBoardFile match {
+    case Success(x) => for (line <- x.getLines().map(l => l.split(","))) {
+      scores += new Score(line(0), line(1).toInt, line(2))
+    }
+      x.close()
+    case Failure(e) => e.printStackTrace()
   }
-  scoreBoardFile.close()
+
 
 }
