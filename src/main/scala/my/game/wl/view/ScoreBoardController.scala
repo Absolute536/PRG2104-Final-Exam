@@ -14,8 +14,7 @@ import java.util.Comparator
 class ScoreBoardController (
                            private val scoreBoard:TableView[Score],
                            private val playerNameColumn: TableColumn[Score, String],
-                           private val scorePointsColumn: TableColumn[Score, Int],
-                           private val timeSurvivedColumn: TableColumn[Score, String]
+                           private val scorePointsColumn: TableColumn[Score, Int]
                            ) {
 
   if (MainApp.scores.isEmpty) {
@@ -25,8 +24,6 @@ class ScoreBoardController (
     scoreBoard.items = MainApp.scores
     playerNameColumn.cellValueFactory = {_.value.playerName}
     scorePointsColumn.cellValueFactory = {_.value.points}
-    timeSurvivedColumn.cellValueFactory = {_.value.timeSurvived}
-
   }
 
   def handleExitScoreBoard(): Unit = {
