@@ -4,10 +4,7 @@ import scalafx.Includes._
 import javafx.{scene => jfxs}
 import scalafxml.core.macros.sfxml
 import my.game.wl.MainApp
-import scalafx.beans.property.StringProperty
 import scalafx.scene.control.{Label, RadioButton, Toggle, ToggleGroup}
-import my.game.wl.util.Sound
-import my.game.wl.MainApp
 
 
 @sfxml
@@ -17,19 +14,20 @@ class SettingsController (
                          private val keyboardSound: ToggleGroup
                          ) {
 
-  def exitSettings(): Unit = {
-    MainApp.showMainMenu()
-  }
-
-  def toggleBackgroundMusic(): Unit = {
-    println(backgroundMusic.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value)
-    if (backgroundMusic.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
+  // TODO: Implement toggle button status persistence
+  backgroundMusic.selectedToggle.onChange((_, _, newToggle) => {
+    if (newToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
       MainApp.s.playBackgroundMusic()
     }
     else {
       MainApp.s.stopBackgroundMusic()
     }
+  })
+
+  def exitSettings(): Unit = {
+    MainApp.showMainMenu()
   }
+
 
   def toggleSoundEffect(): Unit = {
     if (soundEffect.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {

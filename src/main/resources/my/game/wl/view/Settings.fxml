@@ -21,11 +21,11 @@
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <RadioButton mnemonicParsing="false" onAction="#toggleBackgroundMusic" selected="true" text="On">
+                  <RadioButton mnemonicParsing="false" selected="true" text="On">
                      <toggleGroup>
                         <ToggleGroup fx:id="backgroundMusic" />
                      </toggleGroup></RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#toggleBackgroundMusic" text="Off" toggleGroup="$backgroundMusic" />
+                  <RadioButton mnemonicParsing="false" text="Off" toggleGroup="$backgroundMusic" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
