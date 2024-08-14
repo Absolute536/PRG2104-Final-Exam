@@ -8,12 +8,12 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.ScoreBoardController">
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="scoreBoard" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
             <TableColumn prefWidth="88.66668701171875" text="Rank" />
-          <TableColumn prefWidth="210.33331298828125" text="Player" />
-          <TableColumn prefWidth="75.0" text="Score" />
-            <TableColumn prefWidth="75.0" text="Duration Survived" />
+          <TableColumn fx:id="playerNameColumn" prefWidth="210.33331298828125" text="Player" />
+          <TableColumn fx:id="scorePointsColumn" prefWidth="75.0" text="Score" />
+            <TableColumn fx:id="timeSurvivedColumn" prefWidth="75.0" text="Time Survived" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
