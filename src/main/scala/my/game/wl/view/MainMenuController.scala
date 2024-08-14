@@ -10,7 +10,11 @@ import my.game.wl.MainApp
 class MainMenuController {
 
   def startGame(): Unit = {
-
+    val difficulty = getClass.getResource("Difficulty.fxml")
+    val loader = new FXMLLoader(difficulty, NoDependencyResolver)
+    loader.load()
+    val difficultySelect = loader.getRoot[jfxs.layout.BorderPane]
+    MainApp.roots.setCenter(difficultySelect)
   }
 
   def handleHelp(): Unit = {
