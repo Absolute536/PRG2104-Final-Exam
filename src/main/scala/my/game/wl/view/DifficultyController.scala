@@ -25,6 +25,7 @@ class DifficultyController (
       case "Hard" => MainApp.game.difficulty = Difficulty.hard
     }
 
-    MainApp.showGame()
+    MainApp.startGame()
+    println(MainApp.game.difficulty.toString)
   }
 }
