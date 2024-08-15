@@ -35,7 +35,7 @@
                   <ToggleGroup fx:id="difficultyChoice" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Medium" toggleGroup="$difficultyChoice">
+            <RadioButton mnemonicParsing="false" selected="true" text="Medium" toggleGroup="$difficultyChoice">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
