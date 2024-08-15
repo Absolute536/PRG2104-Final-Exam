@@ -15,7 +15,6 @@ import java.util.Comparator
 @sfxml
 class ScoreBoardController (
                            private val scoreBoard:TableView[Score],
-                           private val rankColumn: TableColumn[Score, Int],
                            private val playerNameColumn: TableColumn[Score, String],
                            private val scorePointsColumn: TableColumn[Score, Int]
                            ) {

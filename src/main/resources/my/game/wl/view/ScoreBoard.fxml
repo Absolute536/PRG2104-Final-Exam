@@ -10,7 +10,6 @@
    <center>
       <TableView fx:id="scoreBoard" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn fx:id="rankColumn" prefWidth="88.66668701171875" text="Rank" />
           <TableColumn fx:id="playerNameColumn" prefWidth="210.33331298828125" text="Player" />
           <TableColumn fx:id="scorePointsColumn" prefWidth="75.0" text="Score" />
         </columns>
