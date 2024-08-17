@@ -10,18 +10,23 @@ class WordSelector {
   private val wordList: ArrayBuffer[String] = ArrayBuffer[String]()
 
   def initialiseWordList(difficulty: Difficulty): Unit = {
-    val wordListFile = Try({Source.fromFile(getClass.getResource(s"../../../../${difficulty.state}.txt").toURI)})
+    val wordListFile = Try({Source.fromFile(getClass.getResource(s"../../../../${difficulty.mode}.txt").toURI)})
     wordListFile match {
       case Success(x) => for (word <- x.getLines()) {
         wordList += word
       }
       x.close()
+      println(wordList.length)
       case Failure(x) => x.printStackTrace()
     }
   }
 
   def generateWord(): String = {
     wordList(Random.nextInt(wordList.length))
+  }
+
+  def clearWordList(): Unit = {
+    wordList.clear()
   }
 
 }
