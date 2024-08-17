@@ -3,43 +3,52 @@ package my.game.wl.model
 import scalafx.collections.ObservableBuffer
 import my.game.wl.MainApp
 import my.game.wl.util.WordSelector
-import scalafx.beans.property.ObjectProperty
+import scalafx.beans.property.{ObjectProperty, StringProperty}
 
 import java.io.{File, PrintWriter}
+import java.util.Formatter
 import scala.collection.mutable.ListBuffer
 import scala.io.BufferedSource
 import scala.util.{Failure, Success, Try}
 
 class Game (
            val player: Player,
-           var difficulty: ObjectProperty[Difficulty]
+           val difficulty: ObjectProperty[Difficulty]
            ) {
+  def this(_player: Player) = this(_player, ObjectProperty[Difficulty](Difficulty.medium))
+
+
   val wordSelector: WordSelector = new WordSelector
-  difficulty.onChange((_, _, newDiff) => wordSelector.initialiseWordList(newDiff))
+  var word: StringProperty = new StringProperty()
+
+  def initialiseGame(): Unit = {
+    player.points.value = 0
+    wordSelector.initialiseWordList(difficulty.value)
+    word.value = wordSelector.generateWord()
+  }
 
 
-
-
-
-  private def recordScore(file: BufferedSource): Unit = {
-    var scores = ListBuffer[Score]()
-    for (line <- file.getLines().map(l => l.split(","))) {
-      scores += new Score(line(0), line(1).toInt)
+  var currentCharIndex: Int = 0
+  def checkCorrectChar(character: String): Boolean = {
+    if (word.value(currentCharIndex).toString == character) {
+      true
     }
-    scores += new Score(player.name.value, player.points.value)
-    scores = scores.sortBy(x => x.points.value).reverse
-    scores = scores.take(10)
-
-    val writer = Try(new PrintWriter(new File(getClass.getResource("../../../../TopScore.txt").toURI)))
-    writer match {
-      case Success(f) => for (s <- scores) {
-        f.format("%s, %d", s.playerName.value, new Integer(s.points.value))
-
-      }
-      f.close()
-      case Failure(f) =>
-        f.printStackTrace()
+    else {
+      false
     }
+  }
+
+  def nextWord(): Unit = {
+    word.value = wordSelector.generateWord()
+  }
+
+  def recordScore(): Unit = {
+    val writer = new Formatter(new File(getClass.getResource("../../../../TopScore.txt").toURI))
+    writer.flush()
+    writer.format("%s,%d\n", player.name.value, new Integer(player.points.value))
+    writer.flush()
+    writer.close()
+
 
   }
 

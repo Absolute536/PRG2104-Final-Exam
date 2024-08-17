@@ -13,6 +13,7 @@ import scalafx.scene.paint.Color
 import scalafx.scene.shape.Line
 import scalafx.util.Duration
 import javafx.{scene => jfxs}
+import scalafx.beans.property.{IntegerProperty, StringProperty}
 import scalafx.scene.text.{Text, TextFlow}
 
 import java.util.{Timer, TimerTask}
@@ -21,66 +22,72 @@ import scala.util.Random
 
 @sfxml
 class GameController (
-                       private val stageContainer: BorderPane,
-                       private val stage: Pane,
+                       private val gameStage: Pane,
                        private val defenseLine: Line,
                        private val playerSprite: ImageView,
-                       private val enemy: VBox,
-                       private val word: TextFlow
+                       private val enemySprite: VBox,
+                       private val word: TextFlow,
+                       private val score: Label
                      ) {
 
   // Add listener to stage's height and width to allow for proper displacement of defense line (100% of the height)
-  stage.height.onChange((_, _, newHeight) => {
+  gameStage.height.onChange((_, _, newHeight) => {
     defenseLine.endY = newHeight.doubleValue()
     playerSprite.layoutY = newHeight.doubleValue() * 0.50
-    enemy.layoutY = newHeight.doubleValue() * 0.50
+    enemySprite.layoutY = newHeight.doubleValue() * 0.45
   })
-  stage.width.onChange((_, _, newWidth) => {
-    enemy.layoutX = newWidth.doubleValue() * 0.90
+  gameStage.width.onChange((_, oldWidth, newWidth) => {
+    enemySprite.layoutX = newWidth.doubleValue() * 0.90
   })
 
-  enemy.translateX.onChange((_, _, changedTranslateX) =>
-    if (changedTranslateX.doubleValue() <= -stage.width.value) {
+  enemySprite.translateX.onChange((_, _, changedTranslateX) =>
+    if (changedTranslateX.doubleValue() <= -gameStage.width.value) {
       MainApp.timer.cancel()
       Platform.runLater(() => showGameOver())
     })
 
-  def displayWord(): Unit = {
-    for (c <- MainApp.game.wordSelector.generateWord()) {
-      word.children.add(new Text(c.toString))
+
+  val currentScore: IntegerProperty = IntegerProperty(0)
+  currentScore <== MainApp.game.player.points
+
+
+  private def refreshWord(): Unit = {
+    for (character <- MainApp.game.word.value) {
+      word.children.add(new Text(character.toString))
     }
   }
-  displayWord()
+  refreshWord()
+
+  def validateCharacterTyped(keyEvent: KeyEvent): Unit = {
+    if (MainApp.game.checkCorrectChar(keyEvent.character)) {
+      word.children(MainApp.game.currentCharIndex).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
+      MainApp.game.currentCharIndex += 1
+    }
+
+    if (MainApp.game.currentCharIndex == word.children.length) {
+      word.children.clear()
+      MainApp.game.nextWord()
+      refreshWord()
+      MainApp.game.currentCharIndex = 0
+      MainApp.game.player.increasePoints(MainApp.game.difficulty.value)
+      enemySprite.translateX.value += 30
+      score.text = s"Score: ${currentScore.value.toString}"
+    }
+  }
+
+
 
 
   val tTask = new TimerTask {
       override def run(): Unit = {
-        enemy.translateX.value -= stage.width.value / 15
+        enemySprite.translateX.value -= gameStage.width.value / 15
         println("Running")
       }
     }
   MainApp.timer.schedule(tTask, 500, 1000)
 
-  var correctChar: Int = 0
-  def wordListener(keyEvent: KeyEvent): Unit = {
-    println(keyEvent.character)
 
 
-
-    if (word.children(correctChar).asInstanceOf[jfxs.text.Text].text.value == keyEvent.character) {
-      word.children(correctChar).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
-      correctChar += 1
-    }
-
-    if (correctChar == word.children.length) {
-      correctChar = 0
-      word.children.clear()
-      displayWord()
-
-    }
-
-
-  }
   // display the pause dialog
   def showPauseDialog(keyEvent: KeyEvent): Unit = {
 
@@ -96,12 +103,13 @@ class GameController (
       pauseAlert.get match {
         case ButtonType.OK => {
           MainApp.timer.cancel()
+          MainApp.game.wordSelector.clearWordList()
           MainApp.showMainMenu()
         }
         case _ =>
           MainApp.timer.schedule(new TimerTask {
             override def run(): Unit = {
-              enemy.translateX.value -= stage.width.value / 15
+              enemySprite.translateX.value -= gameStage.width.value / 15
               println("Running")
             }
           }, 0, 1000)
@@ -113,12 +121,21 @@ class GameController (
 
   // Another dialog for input of player name
   def showGameOver(): Unit = {
+    MainApp.game.wordSelector.clearWordList()
 
     val gameOverAlert = new Alert(AlertType.Warning) {
       title = "Game Over"
       headerText = "Game Over"
       contentText = "The game is over"
     }.showAndWait()
+
+    gameOverAlert.get match {
+      case ButtonType.OK => {
+        MainApp.game.recordScore()
+        MainApp.showMainMenu()
+      }
+      case _ => println("RESUME")
+    }
 
   }
 
