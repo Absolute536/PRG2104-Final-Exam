@@ -46,9 +46,15 @@ class GameController (
       Platform.runLater(() => showGameOver())
     })
 
-
   val currentScore: IntegerProperty = IntegerProperty(0)
   currentScore <== MainApp.game.player.points
+
+  val tTask = new TimerTask {
+    override def run(): Unit = {
+      enemySprite.translateX.value -= gameStage.width.value / 20
+    }
+  }
+  MainApp.timer.schedule(tTask, 500, 1000)
 
 
   private def refreshWord(): Unit = {
@@ -60,6 +66,7 @@ class GameController (
 
   def validateCharacterTyped(keyEvent: KeyEvent): Unit = {
     if (MainApp.game.checkCorrectChar(keyEvent.character)) {
+      MainApp.s.playTypingSound()
       word.children(MainApp.game.currentCharIndex).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
       MainApp.game.currentCharIndex += 1
     }
@@ -72,21 +79,9 @@ class GameController (
       MainApp.game.player.increasePoints(MainApp.game.difficulty.value)
       enemySprite.translateX.value += 30
       score.text = s"Score: ${currentScore.value.toString}"
+      MainApp.s.playSoundEffect()
     }
   }
-
-
-
-
-  val tTask = new TimerTask {
-      override def run(): Unit = {
-        enemySprite.translateX.value -= gameStage.width.value / 15
-        println("Running")
-      }
-    }
-  MainApp.timer.schedule(tTask, 500, 1000)
-
-
 
   // display the pause dialog
   def showPauseDialog(keyEvent: KeyEvent): Unit = {
@@ -96,7 +91,7 @@ class GameController (
       val pauseAlert = new Alert(AlertType.Confirmation) {
         title = "Pause Menu"
         headerText = "Paused"
-        contentText = "The Game is Paused. Do you want to quit?"
+        contentText = "The Game is Paused. Do you want to go back to the Main Menu?"
 
       }.showAndWait()
 
@@ -109,7 +104,7 @@ class GameController (
         case _ =>
           MainApp.timer.schedule(new TimerTask {
             override def run(): Unit = {
-              enemySprite.translateX.value -= gameStage.width.value / 15
+              enemySprite.translateX.value -= gameStage.width.value / 20
               println("Running")
             }
           }, 0, 1000)
