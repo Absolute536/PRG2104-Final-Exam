@@ -3,16 +3,17 @@ package my.game.wl.view
 import scalafx.Includes._
 import scalafxml.core.macros.sfxml
 import my.game.wl.MainApp
-import javafx.{scene => jfxs}
-import my.game.wl.model.Enemy
+import scalafx.application.Platform
 import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control.{Alert, ButtonType, Label}
 import scalafx.scene.image.{Image, ImageView}
 import scalafx.scene.input.{KeyCode, KeyEvent, MouseEvent}
-import scalafx.scene.layout.{BorderPane, Pane}
+import scalafx.scene.layout.{AnchorPane, BorderPane, Pane, VBox}
+import scalafx.scene.paint.Color
 import scalafx.scene.shape.Line
-import scalafx.animation.TranslateTransition
 import scalafx.util.Duration
+import javafx.{scene => jfxs}
+import scalafx.scene.text.{Text, TextFlow}
 
 import java.util.{Timer, TimerTask}
 import scala.collection.mutable.ListBuffer
@@ -20,47 +21,71 @@ import scala.util.Random
 
 @sfxml
 class GameController (
-                     private val stageContainer: BorderPane,
-                     private val stage: Pane,
-                     private val defenseLine: Line,
-                     private val playerSprite: ImageView,
-                     private val enemy: ImageView,
+                       private val stageContainer: BorderPane,
+                       private val stage: Pane,
+                       private val defenseLine: Line,
+                       private val playerSprite: ImageView,
+                       private val enemy: VBox,
+                       private val word: TextFlow
                      ) {
 
-  // Add listener to stage's height and width to allow for proper displacement of defense line (15% of the width)
+  // Add listener to stage's height and width to allow for proper displacement of defense line (100% of the height)
   stage.height.onChange((_, _, newHeight) => {
     defenseLine.endY = newHeight.doubleValue()
     playerSprite.layoutY = newHeight.doubleValue() * 0.50
     enemy.layoutY = newHeight.doubleValue() * 0.50
   })
   stage.width.onChange((_, _, newWidth) => {
-    defenseLine.startX = newWidth.doubleValue() * 0.15
-    defenseLine.endX = newWidth.doubleValue() * 0.15
     enemy.layoutX = newWidth.doubleValue() * 0.90
   })
 
-  val tt = new TranslateTransition(Duration(15000), enemy) {
-    byX = -700
+  enemy.translateX.onChange((_, _, changedTranslateX) =>
+    if (changedTranslateX.doubleValue() <= -stage.width.value) {
+      MainApp.timer.cancel()
+      Platform.runLater(() => showGameOver())
+    })
 
+  def displayWord(): Unit = {
+    for (c <- MainApp.game.wordSelector.generateWord()) {
+      word.children.add(new Text(c.toString))
+    }
   }
-  tt.play()
+  displayWord()
+
+
+  val tTask = new TimerTask {
+      override def run(): Unit = {
+        enemy.translateX.value -= stage.width.value / 15
+        println("Running")
+      }
+    }
+  MainApp.timer.schedule(tTask, 500, 1000)
+
+  var correctChar: Int = 0
+  def wordListener(keyEvent: KeyEvent): Unit = {
+    println(keyEvent.character)
 
 
 
-  // TO BE REMOVED
-  def testBtn(): Unit = {
-    MainApp.game.generateEnemy()
-  }
+    if (word.children(correctChar).asInstanceOf[jfxs.text.Text].text.value == keyEvent.character) {
+      word.children(correctChar).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
+      correctChar += 1
+    }
 
-  // mouse click to get focus on the game pane
-  def stageFocus(): Unit = {
-    stage.requestFocus()
+    if (correctChar == word.children.length) {
+      correctChar = 0
+      word.children.clear()
+      displayWord()
+
+    }
+
+
   }
   // display the pause dialog
   def showPauseDialog(keyEvent: KeyEvent): Unit = {
-    println("Pressed")
 
     if (keyEvent.code == KeyCode.Escape) {
+      tTask.cancel()
       val pauseAlert = new Alert(AlertType.Confirmation) {
         title = "Pause Menu"
         headerText = "Paused"
@@ -70,27 +95,37 @@ class GameController (
 
       pauseAlert.get match {
         case ButtonType.OK => {
+          MainApp.timer.cancel()
           MainApp.showMainMenu()
         }
-        case _ => println("Resume")
+        case _ =>
+          MainApp.timer.schedule(new TimerTask {
+            override def run(): Unit = {
+              enemy.translateX.value -= stage.width.value / 15
+              println("Running")
+            }
+          }, 0, 1000)
+          println("Resume")
+
       }
     }
   }
 
-  MainApp.game.enemies.onChange((source, change) => {
-    val e = new ImageView(new Image(getClass.getResource("../../../../images/G.png").toString))
-    e.layoutX = 900
-    val position_Y: Int = Random.nextInt(3)
-    position_Y match {
-      case 0 => e.layoutY = Random.nextInt((stage.height.value * 0.25).toInt)
-      case 1 => e.layoutY = Random.nextInt((stage.height.value * 0.25).toInt) + stage.height.value * 0.25 + 50
-      case 2 => e.layoutY = Random.nextInt((stage.height.value * 0.25).toInt) + stage.height.value * 0.50 + 100
-    }
-    stage.children.add(e)})
+  // Another dialog for input of player name
+  def showGameOver(): Unit = {
+
+    val gameOverAlert = new Alert(AlertType.Warning) {
+      title = "Game Over"
+      headerText = "Game Over"
+      contentText = "The game is over"
+    }.showAndWait()
+
+  }
 
 
 
-  // Key Type
+
+
 
 
 
