@@ -1,0 +1,3 @@
+Peter,100
+Harry,300
+Norman,200
