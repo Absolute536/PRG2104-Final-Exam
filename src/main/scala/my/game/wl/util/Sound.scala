@@ -1,15 +1,16 @@
 package my.game.wl.util
 
 import scalafx.scene.media.{Media, MediaPlayer}
+import scalafx.util.Duration
 
 class Sound {
   val backgroundMusic: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/test.mp3").toString))
-  val soundEffect: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/test2.mp3").toString))
-  var typingSound: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/test2.mp3").toString))
+  val soundEffect: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/Gunshot.wav").toString))
+  var currentTypingSound: Media = new Media(getClass.getResource("../../../../media/KeySound1.mp3").toString)
   val typingSounds: Array[Media] = Array(
-    new Media(getClass.getResource("../../../../media/test2.mp3").toString),
-    new Media(getClass.getResource("../../../../media/test2.mp3").toString),
-    new Media(getClass.getResource("../../../../media/test2.mp3").toString)
+    new Media(getClass.getResource("../../../../media/KeySound1.mp3").toString),
+    new Media(getClass.getResource("../../../../media/KeySound2.mp3").toString),
+    new Media(getClass.getResource("../../../../media/KeySound3.mp3").toString)
   )
   backgroundMusic.autoPlay = true
 
@@ -23,6 +24,7 @@ class Sound {
   }
 
   def playSoundEffect(): Unit = {
+    soundEffect.seek(Duration.Zero)
     soundEffect.play()
   }
 
@@ -31,14 +33,18 @@ class Sound {
   }
 
   def enableSoundEffect(): Unit = {
-    soundEffect.volume = 1.0
+    soundEffect.volume = 0.50
   }
 
   def setTypingSound(num: Int): Unit = {
-    typingSound = new MediaPlayer(typingSounds(num))
+    currentTypingSound = typingSounds(num)
   }
 
   def playTypingSound(): Unit = {
+    val typingSound = new MediaPlayer(currentTypingSound)
+    typingSound.volume = 2.0
+    typingSound.startTime = new Duration(500)
+    typingSound.seek(Duration.Zero)
     typingSound.play()
   }
 

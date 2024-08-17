@@ -31,7 +31,7 @@ class SettingsController (
 
   def toggleSoundEffect(): Unit = {
     if (soundEffect.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
-      MainApp.s.playSoundEffect()
+      MainApp.s.enableSoundEffect()
     }
     else {
       MainApp.s.disableSoundEffect()
