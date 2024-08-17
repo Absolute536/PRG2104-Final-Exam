@@ -1,9 +1,16 @@
 package my.game.wl.model
 
-class Player (_name: String, _healthPoint: Int, _damage: Int, var point: Int) extends Entity(_name, _healthPoint, _damage) {
-  def this() = {this("Player", 3, 1, 0)}
+import scalafx.beans.property.{IntegerProperty, StringProperty}
+import scalafx.scene.Node
 
-  def addScore(enemy: Enemy): Unit = {
-    point += enemy.stat.pointValue
+class Player (val nameS: String,  val pointsI: Int) {
+  def this() = this("Player", 0)
+  def this(name: String) = this(name, 0)
+
+  val name: StringProperty = new StringProperty(nameS)
+  val points: IntegerProperty = IntegerProperty(pointsI)
+
+  def increasePoints(point: Int): Unit = {
+    this.points.value += 20
   }
 }
