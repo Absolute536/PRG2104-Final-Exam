@@ -8,7 +8,6 @@ import java.io.{BufferedReader, BufferedWriter, File, FileReader, FileWriter}
 class ScoreBoard {
   var scoreEntries: ObservableBuffer[Score] = new ObservableBuffer[Score]()
 
-
   def initialiseEntries(): Unit = {
     val reader = new BufferedReader(new FileReader(new File(getClass.getResource("../../../../TopScore.txt").toURI)))
     var line = reader.readLine()
@@ -21,7 +20,7 @@ class ScoreBoard {
     reader.close()
 
     scoreEntries = scoreEntries.sortBy(s => s.points.value).reverse
-    scoreEntries = scoreEntries.take(10)
+    scoreEntries = scoreEntries.take(50)
   }
 
 
