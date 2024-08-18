@@ -10,7 +10,6 @@ import scalafxml.core.{FXMLLoader, NoDependencyResolver}
 import my.game.wl.model._
 import my.game.wl.view.GameOverDialogController
 import scalafx.stage.{Modality, Stage}
-
 import java.util.Timer
 
 

@@ -11,38 +11,38 @@ import scalafx.scene.control.{Label, RadioButton, Toggle, ToggleGroup}
 class SettingsController (
                          private val backgroundMusic: ToggleGroup,
                          private val soundEffect: ToggleGroup,
-                         private val keyboardSound: ToggleGroup
+                         private val typingSound: ToggleGroup
                          ) {
 
-  backgroundMusic.selectedToggle.onChange((_, _, newToggle) => {
-    if (newToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
+  def selectBackgroundMusic(): Unit = {
+    if (backgroundMusic.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
       MainApp.game.sound.playBackgroundMusic()
     }
     else {
       MainApp.game.sound.stopBackgroundMusic()
     }
-  })
+  }
 
-  soundEffect.selectedToggle.onChange((_, _, newToggle) => {
+  def selectSoundEffect(): Unit = {
     if (soundEffect.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
       MainApp.game.sound.enableSoundEffect()
     }
     else {
       MainApp.game.sound.disableSoundEffect()
     }
-  })
+  }
 
-  keyboardSound.selectedToggle.onChange((_, _, newToggle) => {
-    if (keyboardSound.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "Typing Sound 1") {
+  def selectTypingSound(): Unit = {
+    if (typingSound.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "Typing Sound 1") {
       MainApp.game.sound.setTypingSound(0)
     }
-    else if (keyboardSound.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "Typing Sound 2") {
+    else if (typingSound.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "Typing Sound 2") {
       MainApp.game.sound.setTypingSound(1)
     }
     else {
       MainApp.game.sound.setTypingSound(2)
     }
-  })
+  }
 
   def exitSettings(): Unit = {
     MainApp.showMainMenu()
