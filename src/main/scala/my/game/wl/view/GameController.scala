@@ -117,18 +117,7 @@ class GameController (
   // Another dialog for input of player name
   def showGameOver(): Unit = {
     MainApp.game.wordSelector.clearWordList()
-    MainApp.game.recordScore()
-
-    val gameOverAlert = new Alert(AlertType.Warning) {
-      title = "Game Over"
-      headerText = "Game Over"
-      contentText = "The game is over"
-    }.showAndWait()
-
-    gameOverAlert.get match {
-      case ButtonType.OK => MainApp.showMainMenu()
-      case _ => println("RESUME")
-    }
+    MainApp.showGameOverDialog(MainApp.game.player)
 
   }
 
