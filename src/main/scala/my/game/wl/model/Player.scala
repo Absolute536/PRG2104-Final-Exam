@@ -13,7 +13,7 @@ class Player (val nameS: String) {
     difficulty match {
       case Difficulty.easy => this.points.value += 20
       case Difficulty.medium => this.points.value += 35
-      case Difficulty.hard => this.points.value += 75
+      case Difficulty.hard => this.points.value += 50
     }
   }
 }

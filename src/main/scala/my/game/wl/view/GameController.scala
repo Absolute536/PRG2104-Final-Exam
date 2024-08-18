@@ -54,7 +54,7 @@ class GameController (
       enemySprite.translateX.value -= gameStage.width.value / 15
     }
   }
-  MainApp.timer.schedule(tTask, 500, 1000)
+  MainApp.timer.schedule(tTask, 500, 1300)
 
 
   private def refreshWord(): Unit = {
@@ -78,7 +78,7 @@ class GameController (
       refreshWord()
       currentCharacter = 0
       MainApp.game.player.increasePoints(MainApp.game.difficulty.value)
-      enemySprite.translateX.value += 30
+      enemySprite.translateX.value += 40
       score.text = s"Score: ${currentScore.value.toString}"
       MainApp.game.sound.playSoundEffect()
     }
@@ -108,7 +108,7 @@ class GameController (
               enemySprite.translateX.value -= gameStage.width.value / 15
               println("Running")
             }
-          }, 0, 1000)
+          }, 0, 1300)
           println("Resume")
 
       }
