@@ -2,7 +2,6 @@ package my.game.wl.view
 
 import scalafxml.core.macros.sfxml
 import my.game.wl.MainApp
-import scalafx.beans.property.StringProperty
 import scalafx.scene.control.Label
 import scalafx.scene.image.{Image, ImageView}
 

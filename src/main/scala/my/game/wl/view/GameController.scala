@@ -6,19 +6,15 @@ import my.game.wl.MainApp
 import scalafx.application.Platform
 import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control.{Alert, ButtonType, Label}
-import scalafx.scene.image.{Image, ImageView}
-import scalafx.scene.input.{KeyCode, KeyEvent, MouseEvent}
-import scalafx.scene.layout.{AnchorPane, BorderPane, Pane, VBox}
-import scalafx.scene.paint.Color
+import scalafx.scene.image.ImageView
+import scalafx.scene.input.{KeyCode, KeyEvent}
+import scalafx.scene.layout.{Pane, VBox}
 import scalafx.scene.shape.Line
-import scalafx.util.Duration
 import javafx.{scene => jfxs}
-import scalafx.beans.property.{IntegerProperty, StringProperty}
+import scalafx.beans.property.IntegerProperty
 import scalafx.scene.text.{Text, TextFlow}
+import java.util.TimerTask
 
-import java.util.{Timer, TimerTask}
-import scala.collection.mutable.ListBuffer
-import scala.util.Random
 
 @sfxml
 class GameController (

@@ -1,7 +1,6 @@
 package my.game.wl.model
 
 import scalafx.beans.property.{IntegerProperty, StringProperty}
-import scalafx.scene.Node
 
 class Player (val nameS: String) {
   def this() = this("Player")

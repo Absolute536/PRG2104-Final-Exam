@@ -1,12 +1,10 @@
 package my.game.wl.view
 
 import scalafxml.core.macros.sfxml
-import javafx.{scene => jfxs}
-import scalafxml.core.{FXMLLoader, NoDependencyResolver}
 import my.game.wl.MainApp
 import my.game.wl.model.Player
 import scalafx.scene.control.Alert.AlertType
-import scalafx.scene.control.{Alert, TableColumn, TableView, TextField}
+import scalafx.scene.control.{Alert, TextField}
 import scalafx.scene.image.{Image, ImageView}
 import scalafx.stage.Stage
 

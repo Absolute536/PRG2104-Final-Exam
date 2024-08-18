@@ -1,16 +1,9 @@
 package my.game.wl.view
 
-import javafx.beans.property.SimpleIntegerProperty
 import scalafxml.core.macros.sfxml
-import javafx.{scene => jfxs}
-import scalafxml.core.{FXMLLoader, NoDependencyResolver}
 import my.game.wl.MainApp
 import scalafx.scene.control.{TableColumn, TableView}
 import my.game.wl.model.Score
-import scalafx.beans.property.ObjectProperty
-
-import scala.util.{Failure, Success, Try}
-import java.util.Comparator
 
 @sfxml
 class ScoreBoardController (

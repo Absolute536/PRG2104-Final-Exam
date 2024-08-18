@@ -4,7 +4,7 @@ import scalafx.Includes._
 import javafx.{scene => jfxs}
 import scalafxml.core.macros.sfxml
 import my.game.wl.MainApp
-import scalafx.scene.control.{Label, RadioButton, Toggle, ToggleGroup}
+import scalafx.scene.control.ToggleGroup
 
 
 @sfxml

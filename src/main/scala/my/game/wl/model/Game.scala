@@ -1,15 +1,8 @@
 package my.game.wl.model
 
-import scalafx.collections.ObservableBuffer
-import my.game.wl.MainApp
+
 import my.game.wl.util.{ScoreBoard, Sound, WordSelector}
 import scalafx.beans.property.{ObjectProperty, StringProperty}
-
-import java.io.{File, PrintWriter}
-import java.util.Formatter
-import scala.collection.mutable.ListBuffer
-import scala.io.BufferedSource
-import scala.util.{Failure, Success, Try}
 
 class Game (
            val player: Player,
