@@ -14,7 +14,6 @@ class SettingsController (
                          private val keyboardSound: ToggleGroup
                          ) {
 
-  // TODO: Implement toggle button status persistence
   backgroundMusic.selectedToggle.onChange((_, _, newToggle) => {
     if (newToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
       MainApp.game.sound.playBackgroundMusic()
@@ -24,21 +23,16 @@ class SettingsController (
     }
   })
 
-  def exitSettings(): Unit = {
-    MainApp.showMainMenu()
-  }
-
-
-  def toggleSoundEffect(): Unit = {
+  soundEffect.selectedToggle.onChange((_, _, newToggle) => {
     if (soundEffect.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "On") {
       MainApp.game.sound.enableSoundEffect()
     }
     else {
       MainApp.game.sound.disableSoundEffect()
     }
-  }
+  })
 
-  def toggleKeyboardSound(): Unit = {
+  keyboardSound.selectedToggle.onChange((_, _, newToggle) => {
     if (keyboardSound.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton].text.value == "Typing Sound 1") {
       MainApp.game.sound.setTypingSound(0)
     }
@@ -48,6 +42,10 @@ class SettingsController (
     else {
       MainApp.game.sound.setTypingSound(2)
     }
+  })
+
+  def exitSettings(): Unit = {
+    MainApp.showMainMenu()
   }
 
 }

@@ -38,12 +38,12 @@
                         <Insets right="80.0" />
                      </HBox.margin>
                   </Label>
-                  <RadioButton mnemonicParsing="false" onAction="#toggleSoundEffect" selected="true" text="On">
+                  <RadioButton mnemonicParsing="false" selected="true" text="On">
                      <toggleGroup>
                         <ToggleGroup fx:id="soundEffect" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#toggleSoundEffect" text="Off" toggleGroup="$soundEffect" />
+                  <RadioButton mnemonicParsing="false" text="Off" toggleGroup="$soundEffect" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
@@ -56,12 +56,12 @@
                         <Insets right="50.0" />
                      </HBox.margin>
                   </Label>
-                  <RadioButton mnemonicParsing="false" onAction="#toggleKeyboardSound" selected="true" text="Typing Sound 1">
+                  <RadioButton mnemonicParsing="false" selected="true" text="Typing Sound 1">
                      <toggleGroup>
                         <ToggleGroup fx:id="keyboardSound" />
                      </toggleGroup></RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#toggleKeyboardSound" text="Typing Sound 2" toggleGroup="$keyboardSound" />
-                  <RadioButton mnemonicParsing="false" onAction="#toggleKeyboardSound" text="Typing Sound 3" toggleGroup="$keyboardSound" />
+                  <RadioButton mnemonicParsing="false" text="Typing Sound 2" toggleGroup="$keyboardSound" />
+                  <RadioButton mnemonicParsing="false" text="Typing Sound 3" toggleGroup="$keyboardSound" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
