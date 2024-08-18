@@ -26,7 +26,7 @@ class GameOverDialogController (
   def player_=(p: Player) {
     _player = p
 
-    playerNameField.text = _player.name.value
+    playerNameField.text = "Player"
   }
 
 
@@ -36,6 +36,7 @@ class GameOverDialogController (
       MainApp.game.recordScore()
       quitClicked = true
       dialogStage.close()
+      MainApp.game.scoreBoard.refreshEntries()
       MainApp.showMainMenu()
     }
   }
