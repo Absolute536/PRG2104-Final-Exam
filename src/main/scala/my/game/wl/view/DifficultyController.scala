@@ -27,6 +27,7 @@ class DifficultyController (
     }
     println(MainApp.game.difficulty.value.mode)
     MainApp.timer = new Timer(true)
-    MainApp.startGame()
+    MainApp.game.initialiseGame()
+    MainApp.showGame()
   }
 }
