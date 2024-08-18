@@ -33,16 +33,6 @@ class Game (
     word.value = wordSelector.generateWord()
   }
 
-  var currentCharIndex: Int = 0
-  def checkCorrectChar(character: String): Boolean = {
-    if (word.value(currentCharIndex).toString == character) {
-      true
-    }
-    else {
-      false
-    }
-  }
-
   def nextWord(): Unit = {
     word.value = wordSelector.generateWord()
   }

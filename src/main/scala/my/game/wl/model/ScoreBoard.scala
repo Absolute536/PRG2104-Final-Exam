@@ -33,4 +33,8 @@ class ScoreBoard {
     bWriter.close()
   }
 
+  def refreshEntries(): Unit = {
+    scoreEntries = scoreEntries.sortBy(s => s.points.value).reverse
+  }
+
 }

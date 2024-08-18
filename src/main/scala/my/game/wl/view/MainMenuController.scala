@@ -5,7 +5,6 @@ import javafx.{scene => jfxs}
 import scalafxml.core.{FXMLLoader, NoDependencyResolver}
 import my.game.wl.MainApp
 
-
 @sfxml
 class MainMenuController {
 
@@ -24,6 +23,7 @@ class MainMenuController {
     val roots = loader.getRoot[jfxs.layout.BorderPane]
     MainApp.roots.setCenter(roots)
   }
+
   def showScoreBoard(): Unit = {
     val score = getClass.getResource("ScoreBoard.fxml")
     val loader = new FXMLLoader(score, NoDependencyResolver)

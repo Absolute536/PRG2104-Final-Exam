@@ -51,7 +51,7 @@ class GameController (
 
   val tTask = new TimerTask {
     override def run(): Unit = {
-      enemySprite.translateX.value -= gameStage.width.value / 5
+      enemySprite.translateX.value -= gameStage.width.value / 15
     }
   }
   MainApp.timer.schedule(tTask, 500, 1000)
@@ -64,18 +64,19 @@ class GameController (
   }
   refreshWord()
 
+  var currentCharacter: Int = 0
   def validateCharacterTyped(keyEvent: KeyEvent): Unit = {
-    if (MainApp.game.checkCorrectChar(keyEvent.character)) {
+    if (MainApp.game.word.value(currentCharacter).toString == keyEvent.character) {
       MainApp.game.sound.playTypingSound()
-      word.children(MainApp.game.currentCharIndex).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
-      MainApp.game.currentCharIndex += 1
+      word.children(currentCharacter).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
+      currentCharacter += 1
     }
 
-    if (MainApp.game.currentCharIndex == word.children.length) {
+    if (currentCharacter == word.children.length) {
       word.children.clear()
       MainApp.game.nextWord()
       refreshWord()
-      MainApp.game.currentCharIndex = 0
+      currentCharacter = 0
       MainApp.game.player.increasePoints(MainApp.game.difficulty.value)
       enemySprite.translateX.value += 30
       score.text = s"Score: ${currentScore.value.toString}"
@@ -104,7 +105,7 @@ class GameController (
         case _ =>
           MainApp.timer.schedule(new TimerTask {
             override def run(): Unit = {
-              enemySprite.translateX.value -= gameStage.width.value / 20
+              enemySprite.translateX.value -= gameStage.width.value / 15
               println("Running")
             }
           }, 0, 1000)
