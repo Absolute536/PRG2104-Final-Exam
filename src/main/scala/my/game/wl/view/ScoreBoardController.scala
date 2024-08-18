@@ -16,17 +16,18 @@ import java.util.Comparator
 class ScoreBoardController (
                            private val scoreBoard:TableView[Score],
                            private val playerNameColumn: TableColumn[Score, String],
-                           private val scorePointsColumn: TableColumn[Score, Int]
+                           private val scorePointsColumn: TableColumn[Score, Int],
+                           private val difficultyColumn: TableColumn[Score, String]
                            ) {
 
-  if (MainApp.scoreBoard.isEmpty) {
+  if (MainApp.game.scoreBoard.scoreEntries.isEmpty) {
     println("The file is empty")
   }
   else {
-    scoreBoard.items = MainApp.scoreBoard.sortBy(player => player.points.value)
+    scoreBoard.items = MainApp.game.scoreBoard.scoreEntries
     playerNameColumn.cellValueFactory = {_.value.playerName}
     scorePointsColumn.cellValueFactory = {_.value.points}
-
+    difficultyColumn.cellValueFactory = {_.value.difficulty}
   }
 
   def handleExitScoreBoard(): Unit = {
