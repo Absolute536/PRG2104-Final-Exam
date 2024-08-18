@@ -2,19 +2,14 @@ package my.game.wl
 
 import scalafx.application.JFXApp
 import javafx.{scene => jfxs}
-import my.game.wl.model.{Game, Score}
+import my.game.wl.model.Game
 import scalafx.Includes._
 import scalafx.application.JFXApp._
 import scalafx.scene.Scene
 import scalafxml.core.{FXMLLoader, NoDependencyResolver}
-import my.game.wl.util.Sound
-import scalafx.collections.ObservableBuffer
 import my.game.wl.model._
-
-
 import java.util.Timer
-import scala.io.Source
-import scala.util.{Failure, Success, Try}
+
 
 object MainApp extends JFXApp {
 
@@ -39,20 +34,6 @@ object MainApp extends JFXApp {
 
   }
   showMainMenu()
-
-  val s: Sound = new Sound()
-  s.playBackgroundMusic()
-
-  val scoreBoard = new ObservableBuffer[Score]()
-  // Maybe we should move it to some other place
-  val scoreBoardFile = Try({Source.fromFile(getClass.getResource("../../../TopScore.txt").toURI)})
-  scoreBoardFile match {
-    case Success(x) => for (line <- x.getLines().map(l => l.split(","))) {
-      scoreBoard += new Score(line(0), line(1).toInt, line(2))
-    }
-      x.close()
-    case Failure(e) => e.printStackTrace()
-  }
 
   val game = new Game(new Player)
 

@@ -2,8 +2,9 @@ package my.game.wl.model
 
 import scalafx.collections.ObservableBuffer
 import my.game.wl.MainApp
-import my.game.wl.util.{Sound, WordSelector}
+import my.game.wl.util.{ScoreBoard, Sound, WordSelector}
 import scalafx.beans.property.{ObjectProperty, StringProperty}
+
 import java.io.{File, PrintWriter}
 import java.util.Formatter
 import scala.collection.mutable.ListBuffer
@@ -20,7 +21,11 @@ class Game (
   val wordSelector: WordSelector = new WordSelector
   var word: StringProperty = new StringProperty()
 
-  val sound: Sound
+  val sound: Sound = new Sound
+  sound.playBackgroundMusic()
+
+  val scoreBoard: ScoreBoard = new ScoreBoard
+  scoreBoard.initialiseEntries()
 
   def initialiseGame(): Unit = {
     player.points.value = 0
@@ -43,11 +48,7 @@ class Game (
   }
 
   def recordScore(): Unit = {
-    val writer = new Formatter(new File(getClass.getResource("../../../../TopScore.txt").toURI))
-    writer.format("%s,%d\n", player.name.value, new Integer(player.points.value))
-    writer.flush()
-    writer.close()
-
+    scoreBoard.updateEntriesToFile(new Score(player.name.value, player.points.value, difficulty.value.mode))
 
   }
 

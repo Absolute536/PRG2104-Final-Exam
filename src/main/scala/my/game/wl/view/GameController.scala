@@ -51,7 +51,7 @@ class GameController (
 
   val tTask = new TimerTask {
     override def run(): Unit = {
-      enemySprite.translateX.value -= gameStage.width.value / 20
+      enemySprite.translateX.value -= gameStage.width.value / 5
     }
   }
   MainApp.timer.schedule(tTask, 500, 1000)
@@ -66,7 +66,7 @@ class GameController (
 
   def validateCharacterTyped(keyEvent: KeyEvent): Unit = {
     if (MainApp.game.checkCorrectChar(keyEvent.character)) {
-      MainApp.s.playTypingSound()
+      MainApp.game.sound.playTypingSound()
       word.children(MainApp.game.currentCharIndex).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
       MainApp.game.currentCharIndex += 1
     }
@@ -79,7 +79,7 @@ class GameController (
       MainApp.game.player.increasePoints(MainApp.game.difficulty.value)
       enemySprite.translateX.value += 30
       score.text = s"Score: ${currentScore.value.toString}"
-      MainApp.s.playSoundEffect()
+      MainApp.game.sound.playSoundEffect()
     }
   }
 
@@ -117,6 +117,7 @@ class GameController (
   // Another dialog for input of player name
   def showGameOver(): Unit = {
     MainApp.game.wordSelector.clearWordList()
+    MainApp.game.recordScore()
 
     val gameOverAlert = new Alert(AlertType.Warning) {
       title = "Game Over"
@@ -125,10 +126,7 @@ class GameController (
     }.showAndWait()
 
     gameOverAlert.get match {
-      case ButtonType.OK => {
-        MainApp.game.recordScore()
-        MainApp.showMainMenu()
-      }
+      case ButtonType.OK => MainApp.showMainMenu()
       case _ => println("RESUME")
     }
 
