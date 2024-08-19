@@ -8,12 +8,16 @@ import scalafx.scene.layout.BorderPane
 
 @sfxml
 class HelpController (
+                       private val helpContent: BorderPane,
                        private val helpTitle: Label,
                        private val helpImage: ImageView,
                        private val helpDesc: Label,
                        private val prevButton: Button,
                        private val nextButton: Button
                      ) {
+
+  helpContent.width.onChange((_, _, newWidth) => helpImage.fitWidth = newWidth.doubleValue() * 0.80)
+  helpContent.height.onChange((_, _, newHeight) => helpImage.fitHeight = newHeight.doubleValue() * 0.80)
 
   val helpTitles: Array[String] = Array("Game Rule:", "How to Play:", "Difficulty Guide:")
 
