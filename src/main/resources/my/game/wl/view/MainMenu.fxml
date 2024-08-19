@@ -16,7 +16,7 @@
          <children>
             <Label styleClass="label-header" text="Typer Defense">
                <VBox.margin>
-                  <Insets bottom="100.0" top="20.0" />
+                  <Insets bottom="75.0" top="20.0" />
                </VBox.margin>
                <font>
                   <Font size="36.0" />
@@ -27,7 +27,7 @@
                   <Font size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#handleHelp" text="Help">
@@ -35,7 +35,7 @@
                   <Font size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#showScoreBoard" text="Scoreboard">
@@ -43,7 +43,7 @@
                   <Font size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#showSettings" text="Settings">
@@ -51,7 +51,7 @@
                   <Font size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </Button>
             <Button layoutX="475.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleExit" text="Exit">
@@ -59,7 +59,7 @@
                   <Font size="14.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </Button>
          </children>

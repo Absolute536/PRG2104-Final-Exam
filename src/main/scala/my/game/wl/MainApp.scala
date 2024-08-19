@@ -24,6 +24,7 @@ object MainApp extends JFXApp {
     title = "Typer Defense"
     scene = new Scene {
       root = roots
+      stylesheets = List(getClass.getResource("view/GameTheme.css").toString)
     }
   }
 
@@ -73,6 +74,7 @@ object MainApp extends JFXApp {
       scene = new Scene {
         // second stylesheet here
         root = roots2
+        stylesheets = List(getClass.getResource("view/GameTheme.css").toString)
       }
     }
     // dialogStage & person in the controller is null, so they must be initialised

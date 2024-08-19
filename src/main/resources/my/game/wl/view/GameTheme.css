@@ -1,8 +1,10 @@
 /* The styling for the game */
 
 .background {
-    -fx-background-color: linear-gradient(to bottom, green, forestgreen, limegreen, greenyellow);
+    -fx-background-color: linear-gradient(to bottom, #7F7FD5, #86A8E7, #91EAE4);
 }
+
+
 
 .label-header {
     -fx-font-family: "Courier New";
@@ -11,22 +13,51 @@
     -fx-alignment: center;
 }
 
+.label-header .text {
+    -fx-stroke: white;
+    -fx-stroke-width: 1px;
+}
+
+.label-subheader {
+    -fx-font-size: 2.5em;
+    -fx-font-family: "Times New Roman", "Baskerville Old Face", Georgia
+}
+
+.label-content {
+    -fx-font-size: 1.5em;
+}
+
 .button {
-    -fx-background-color: red;
-    -fx-border-color: silver;
-    -fx-border-width: 3px;
+    -fx-background-color: darkorange;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-font-size: 1.5em;
+    -fx-font-family: Arial;
+    -fx-font-weight: normal;
 }
-
-.button-return {
-
-}
-
-.button-continue {
-
-}
-
-
 
 .button:hover {
-    -fx-background-color: grey;
+    -fx-background-color: orange;
+}
+
+.button:pressed {
+    -fx-background-color: #FAFAFA;
+}
+
+.radio-button {
+    -fx-label-padding: 1.5em;
+    -fx-font-size: 1.5em;
+}
+
+.radio-button.easy {
+    -fx-font-size: 1.5em;
+    -fx-graphic: url("../../../../images/G.png");
+}
+
+.radio-button.medium {
+    -fx-graphic: url("../../../../images/G.png");
+}
+
+.radio-button.hard {
+    -fx-graphic: url("../../../../images/G.png");
 }
