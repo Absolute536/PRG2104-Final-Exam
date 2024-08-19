@@ -4,10 +4,8 @@
     -fx-background-color: linear-gradient(to bottom, #7F7FD5, #86A8E7, #91EAE4);
 }
 
-
-
 .label-header {
-    -fx-font-family: "Courier New";
+    -fx-font-family: "Courier New", Courier, Monospace;
     -fx-font-size: 5em;
     -fx-font-weight: bold;
     -fx-alignment: center;
@@ -20,7 +18,7 @@
 
 .label-subheader {
     -fx-font-size: 2.5em;
-    -fx-font-family: Calibri, Helvetica, Arial;
+    -fx-font-family: Georgia, Baskerville, "Times New Roman";
 }
 
 .label-content {
@@ -61,4 +59,33 @@
 
 .radio-button.hard {
     -fx-graphic: url("../../../../images/G.png");
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-font-family: Calibri, Helvetica, Arial;
+}
+
+.table-view:focused {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: cornflowerblue;
+    -fx-font-size: 1.7em;
+}
+
+.table-view .table-cell {
+    -fx-font-size: 1.3em;
+    -fx-background-color: skyblue;
+    -fx-cell-size: 1.5em;
+    -fx-alignment: center;
+}
+
+.table-view .table-cell:odd {
+    -fx-background-color: lightblue;
+}
+
+.text-area {
+    -fx-font-family: Calibri, Helvetica, Arial
 }
