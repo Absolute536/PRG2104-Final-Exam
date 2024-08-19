@@ -32,7 +32,7 @@ class GameController (
     playerSprite.layoutY = newHeight.doubleValue() * 0.50
     enemySprite.layoutY = newHeight.doubleValue() * 0.40
   })
-  gameStage.width.onChange((_, oldWidth, newWidth) => {
+  gameStage.width.onChange((_, _, newWidth) => {
     enemySprite.layoutX = newWidth.doubleValue() * 0.90
   })
 
@@ -86,9 +86,9 @@ class GameController (
     if (keyEvent.code == KeyCode.Escape) {
       tTask.cancel()
       val pauseAlert = new Alert(AlertType.Confirmation) {
-        title = "Pause Menu"
-        headerText = "Paused"
-        contentText = "The Game is Paused. Do you want to go back to the Main Menu?"
+        title = "Paused"
+        headerText = "Game Paused"
+        contentText = "The Game is Paused.\nDo you want to go back to the Main Menu?"
 
       }.showAndWait()
 
@@ -102,7 +102,6 @@ class GameController (
           MainApp.timer.schedule(new TimerTask {
             override def run(): Unit = {
               enemySprite.translateX.value -= gameStage.width.value / 15
-              println("Running")
             }
           }, 0, 1300)
           println("Resume")
