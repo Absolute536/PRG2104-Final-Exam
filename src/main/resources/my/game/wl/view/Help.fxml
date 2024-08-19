@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
@@ -9,14 +10,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" styleClass="background" stylesheets="@GameTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@GameTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
    <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <center>
-            <ImageView fx:id="helpImage" fitHeight="450.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="helpImage" fitHeight="400.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../../images/G.png" />
-               </image></ImageView>
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport></ImageView>
          </center>
          <top>
             <Label fx:id="helpTitle" styleClass="label-subheader" text="Game Rule:" BorderPane.alignment="CENTER_LEFT">
@@ -29,7 +33,7 @@
             </Label>
          </top>
          <bottom>
-            <Label fx:id="helpDesc" styleClass="label-content" text="Defend against enemy attack. The enemy will march towards you continuously, survive for as long as possible. The game is over once the enemy crosses the defense line (red)." wrapText="true" BorderPane.alignment="CENTER_LEFT">
+            <Label fx:id="helpDesc" styleClass="label-content" text="Defend against enemy attack. The enemy will march towards you continuously, survive and achieve the highest score for as long as possible. The game is over once the enemy crosses the defense line (red)." wrapText="true" BorderPane.alignment="CENTER_LEFT">
                <BorderPane.margin>
                   <Insets left="30.0" right="30.0" />
                </BorderPane.margin>
@@ -61,7 +65,7 @@
             <Button mnemonicParsing="false" onAction="#nextHelpPage" text="Next" ButtonBar.buttonData="RIGHT" />
         </buttons>
          <BorderPane.margin>
-            <Insets bottom="5.0" left="30.0" right="30.0" top="20.0" />
+            <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
          </BorderPane.margin>
       </ButtonBar>
    </bottom>

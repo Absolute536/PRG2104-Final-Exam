@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" styleClass="background" stylesheets="@GameTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.DifficultyController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@GameTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.DifficultyController">
    <top>
       <Label styleClass="label-header" text="Select a Difficulty" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -35,7 +35,7 @@
                   <ToggleGroup fx:id="difficultyChoice" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" selected="true" text="Medium" toggleGroup="$difficultyChoice">
+            <RadioButton mnemonicParsing="false" selected="true" styleClass="medium" text="Medium" toggleGroup="$difficultyChoice">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
@@ -43,7 +43,7 @@
                   <Font size="18.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Hard" toggleGroup="$difficultyChoice">
+            <RadioButton mnemonicParsing="false" styleClass="hard" text="Hard" toggleGroup="$difficultyChoice">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
