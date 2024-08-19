@@ -2,7 +2,7 @@ package my.game.wl.view
 
 import scalafxml.core.macros.sfxml
 import my.game.wl.MainApp
-import scalafx.scene.control.Label
+import scalafx.scene.control.{Button, Label}
 import scalafx.scene.image.{Image, ImageView}
 import scalafx.scene.layout.BorderPane
 
@@ -10,7 +10,9 @@ import scalafx.scene.layout.BorderPane
 class HelpController (
                        private val helpTitle: Label,
                        private val helpImage: ImageView,
-                       private val helpDesc: Label
+                       private val helpDesc: Label,
+                       private val prevButton: Button,
+                       private val nextButton: Button
                      ) {
 
   val helpTitles: Array[String] = Array("Game Rule:", "How to Play:", "Difficulty Guide:")
@@ -36,11 +38,13 @@ class HelpController (
         helpTitle.setText(helpTitles(0))
         helpDesc.setText(helpDescriptions(0))
         helpImage.image = helpImages(0)
+        prevButton.disable = true
       }
       else {
         helpTitle.setText(helpTitles(1))
         helpDesc.setText(helpDescriptions(1))
         helpImage.image = helpImages(1)
+        nextButton.disable = false
       }
     }
   }
@@ -51,11 +55,13 @@ class HelpController (
         helpTitle.setText(helpTitles(1))
         helpDesc.setText(helpDescriptions(1))
         helpImage.image = helpImages(1)
+        prevButton.disable = false
       }
       else {
         helpTitle.setText(helpTitles(2))
         helpDesc.setText(helpDescriptions(2))
         helpImage.image = helpImages(2)
+        nextButton.disable = true
       }
     }
   }

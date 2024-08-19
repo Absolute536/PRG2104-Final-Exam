@@ -14,13 +14,14 @@
    <center>
       <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <center>
-            <ImageView fx:id="helpImage" fitHeight="400.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fx:id="helpImage" cache="true" fitHeight="400.0" fitWidth="800.0" pickOnBounds="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../../images/G.png" />
                </image>
                <viewport>
                   <Rectangle2D />
-               </viewport></ImageView>
+               </viewport>
+            </ImageView>
          </center>
          <top>
             <Label fx:id="helpTitle" styleClass="label-subheader" text="Game Rule:" BorderPane.alignment="CENTER_LEFT">
@@ -61,8 +62,8 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
             <Button mnemonicParsing="false" onAction="#handleExitHelp" text="Exit Help" ButtonBar.buttonData="LEFT" />
-          <Button mnemonicParsing="false" onAction="#previousHelpPage" text="Prev" ButtonBar.buttonData="RIGHT" />
-            <Button mnemonicParsing="false" onAction="#nextHelpPage" text="Next" ButtonBar.buttonData="RIGHT" />
+          <Button fx:id="prevButton" disable="true" mnemonicParsing="false" onAction="#previousHelpPage" text="Prev" ButtonBar.buttonData="RIGHT" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextHelpPage" text="Next" ButtonBar.buttonData="RIGHT" />
         </buttons>
          <BorderPane.margin>
             <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
