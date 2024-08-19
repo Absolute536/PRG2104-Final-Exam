@@ -1,0 +1,32 @@
+/* The styling for the game */
+
+.background {
+    -fx-background-color: linear-gradient(to bottom, green, forestgreen, limegreen, greenyellow);
+}
+
+.label-header {
+    -fx-font-family: "Courier New";
+    -fx-font-size: 5em;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.button {
+    -fx-background-color: red;
+    -fx-border-color: silver;
+    -fx-border-width: 3px;
+}
+
+.button-return {
+
+}
+
+.button-continue {
+
+}
+
+
+
+.button:hover {
+    -fx-background-color: grey;
+}

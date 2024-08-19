@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@GameTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.HelpController">
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -44,7 +44,7 @@
       </BorderPane>
    </center>
    <top>
-      <Label text="Help" BorderPane.alignment="CENTER">
+      <Label styleClass="label-header" text="Help" BorderPane.alignment="CENTER">
          <font>
             <Font size="36.0" />
          </font>
@@ -61,7 +61,7 @@
             <Button mnemonicParsing="false" onAction="#nextHelpPage" text="Next" ButtonBar.buttonData="RIGHT" />
         </buttons>
          <BorderPane.margin>
-            <Insets left="30.0" right="30.0" />
+            <Insets bottom="5.0" left="30.0" right="30.0" top="20.0" />
          </BorderPane.margin>
       </ButtonBar>
    </bottom>
