@@ -114,17 +114,6 @@ class GameController (
   def showGameOver(): Unit = {
     MainApp.game.wordSelector.clearWordList()
     MainApp.showGameOverDialog(MainApp.game.player)
-
   }
-
-
-
-
-
-
-
-
-
-
 
 }

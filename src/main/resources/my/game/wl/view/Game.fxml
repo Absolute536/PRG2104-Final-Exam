@@ -18,7 +18,7 @@
             <Line fx:id="defenseLine" endY="625.0" stroke="RED" strokeWidth="2.5" />
             <VBox fx:id="enemySprite" alignment="CENTER" layoutX="700.0" layoutY="200.0">
                <children>
-                  <TextFlow fx:id="word" styleClass="generated-word" textAlignment="CENTER" />
+                  <TextFlow fx:id="word" styleClass="text-flow-generated-word" textAlignment="CENTER" />
                   <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../images/G.png" />
@@ -30,9 +30,9 @@
       </Pane>
    </center>
    <top>
-      <Label fx:id="score" text="Score: 0" BorderPane.alignment="CENTER_RIGHT">
+      <Label fx:id="score" styleClass="label-score" text="Score: 0" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
-            <Insets right="30.0" top="10.0" />
+            <Insets right="30.0" top="15.0" />
          </BorderPane.margin>
          <font>
             <Font name="System Bold" size="14.0" />

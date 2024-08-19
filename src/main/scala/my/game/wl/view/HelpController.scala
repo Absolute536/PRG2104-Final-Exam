@@ -17,7 +17,7 @@ class HelpController (
                      ) {
 
   helpContent.width.onChange((_, _, newWidth) => helpImage.fitWidth = newWidth.doubleValue() * 0.80)
-  helpContent.height.onChange((_, _, newHeight) => helpImage.fitHeight = newHeight.doubleValue() * 0.80)
+  helpContent.height.onChange((_, _, newHeight) => helpImage.fitHeight = newHeight.doubleValue() * 0.75)
 
   val helpTitles: Array[String] = Array("Game Rule:", "How to Play:", "Difficulty Guide:")
 
