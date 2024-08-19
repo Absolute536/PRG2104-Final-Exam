@@ -18,7 +18,7 @@
             <Line fx:id="defenseLine" endY="625.0" stroke="RED" strokeWidth="2.5" />
             <VBox fx:id="enemySprite" alignment="CENTER" layoutX="700.0" layoutY="200.0">
                <children>
-                  <TextFlow fx:id="word" textAlignment="CENTER" />
+                  <TextFlow fx:id="word" styleClass="generated-word" textAlignment="CENTER" />
                   <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../images/G.png" />

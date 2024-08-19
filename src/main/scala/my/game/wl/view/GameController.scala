@@ -30,7 +30,7 @@ class GameController (
   gameStage.height.onChange((_, _, newHeight) => {
     defenseLine.endY = newHeight.doubleValue()
     playerSprite.layoutY = newHeight.doubleValue() * 0.50
-    enemySprite.layoutY = newHeight.doubleValue() * 0.45
+    enemySprite.layoutY = newHeight.doubleValue() * 0.40
   })
   gameStage.width.onChange((_, oldWidth, newWidth) => {
     enemySprite.layoutX = newWidth.doubleValue() * 0.90

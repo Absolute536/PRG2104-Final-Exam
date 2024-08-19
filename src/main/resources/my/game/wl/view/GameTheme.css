@@ -90,3 +90,9 @@
     -fx-font-family: Calibri, Helvetica, Arial;
     -fx-padding: 0.5em;
 }
+
+.generated-word {
+    -fx-font-size: 2em;
+    -fx-font-family: Calibri, Helvetica, Arial;
+    -fx-alignment: center;
+}
