@@ -4,6 +4,7 @@ import scalafxml.core.macros.sfxml
 import my.game.wl.MainApp
 import scalafx.scene.control.Label
 import scalafx.scene.image.{Image, ImageView}
+import scalafx.scene.layout.BorderPane
 
 @sfxml
 class HelpController (
@@ -15,9 +16,9 @@ class HelpController (
   val helpTitles: Array[String] = Array("Game Rule:", "How to Play:", "Difficulty Guide:")
 
   val helpDescriptions: Array[String] = Array(
-    "Defend against enemy attack. The enemy will march towards you continuously, survive for as long as possible. The game is over once the enemy crosses the defense line (red).",
-    "Type the words generated above the enemy to shoot and knock-back the enemy. A sound cue will play upon correctly typed character, and the character will turn red",
-    "Easy: 3 ~ 4 letter words. Each correct word typed gives 20 points.\nMedium: 5 letter words. Each correct word typed gives 35 points.\nHard: 5 ~ 6 letter words. Each correct word typed gives 50 points.")
+    "Defend against enemy attack. The enemy will march towards you continuously, survive and achieve the highest score for as long as possible. The game is over once the enemy crosses the defense line (red).",
+    "Type the words generated above the enemy to shoot and knock-back the enemy. The correctly typed character will turn red, and the typing sound will be played.\nEntering the whole word correctly to obtain points.",
+    "Easy: 3 to 4 letter words. Each correct word typed gives 20 points.\nMedium: 5 letter words. Each correct word typed gives 35 points.\nHard: 6 to 7 letter words. Each correct word typed gives 50 points.")
 
   val helpImages: Array[Image] = Array(
     new Image(getClass.getResource("../../../../images/G.png").toString),
