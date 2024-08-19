@@ -28,8 +28,11 @@
                <font>
                   <Font size="36.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
             </Label>
-            <Label text="Enter Your Name: " GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label styleClass="label-content" text="Enter Your Name: " GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <TextField fx:id="playerNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#saveAndQuit" text="Save &amp; Quit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
