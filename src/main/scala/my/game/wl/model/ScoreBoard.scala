@@ -11,9 +11,8 @@ class ScoreBoard {
   def initialiseEntries(): Unit = {
     val reader = new BufferedReader(new FileReader(new File(getClass.getResource("../../../../TopScore.txt").toURI)))
     var line = reader.readLine()
-    while (line != null) {
+    while (line != null && line.nonEmpty) {
       var entries = line.split(",")
-      println(entries.mkString)
       scoreEntries += new Score(entries(0), entries(1).toInt, entries(2))
       line = reader.readLine()
     }

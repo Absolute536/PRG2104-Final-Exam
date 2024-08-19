@@ -25,7 +25,6 @@ class DifficultyController (
       case "Medium" => MainApp.game.difficulty.value = Difficulty.medium
       case "Hard" => MainApp.game.difficulty.value = Difficulty.hard
     }
-    println(MainApp.game.difficulty.value.mode)
     MainApp.timer = new Timer(true)
     MainApp.game.initialiseGame()
     MainApp.showGame()

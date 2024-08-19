@@ -16,7 +16,6 @@ class WordSelector {
         wordList += word
       }
       x.close()
-      println(wordList.length)
       case Failure(x) => x.printStackTrace()
     }
   }
