@@ -20,11 +20,12 @@
 
 .label-subheader {
     -fx-font-size: 2.5em;
-    -fx-font-family: "Times New Roman", "Baskerville Old Face", Georgia
+    -fx-font-family: Calibri, Helvetica, Arial;
 }
 
 .label-content {
     -fx-font-size: 1.5em;
+    -fx-font-family: Calibri, Helvetica, Arial;
 }
 
 .button {
