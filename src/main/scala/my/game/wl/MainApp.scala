@@ -9,7 +9,9 @@ import scalafx.scene.Scene
 import scalafxml.core.{FXMLLoader, NoDependencyResolver}
 import my.game.wl.model._
 import my.game.wl.view.GameOverDialogController
+import scalafx.scene.image.Image
 import scalafx.stage.{Modality, Stage}
+
 import java.util.Timer
 
 
@@ -22,6 +24,7 @@ object MainApp extends JFXApp {
 
   stage = new PrimaryStage {
     title = "Typer Defense"
+    icons += new Image(getClass.getResourceAsStream("../../../images/Icon.png"))
     scene = new Scene {
       root = roots
       stylesheets = List(getClass.getResource("view/GameTheme.css").toString)
