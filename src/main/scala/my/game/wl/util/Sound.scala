@@ -5,7 +5,7 @@ import scalafx.util.Duration
 
 class Sound {
   val selectedSettings: Array[Int] = Array(0, 0, 0)
-  val backgroundMusic: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/test.mp3").toString))
+  val backgroundMusic: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/BackgroundMusic.mp3").toString))
   val soundEffect: MediaPlayer = new MediaPlayer(new Media(getClass.getResource("../../../../media/Gunshot.wav").toString))
   var currentTypingSound: Media = new Media(getClass.getResource("../../../../media/KeySound1.mp3").toString)
   val typingSounds: Array[Media] = Array(
