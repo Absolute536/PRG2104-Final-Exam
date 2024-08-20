@@ -29,11 +29,11 @@ class GameController (
   // Add listener to stage's height and width to allow for proper displacement of defense line (100% of the height)
   gameStage.height.onChange((_, _, newHeight) => {
     defenseLine.endY = newHeight.doubleValue()
-    playerSprite.layoutY = newHeight.doubleValue() * 0.50
+    playerSprite.layoutY = newHeight.doubleValue() * 0.45
     enemySprite.layoutY = newHeight.doubleValue() * 0.35
   })
   gameStage.width.onChange((_, _, newWidth) => {
-    enemySprite.layoutX = newWidth.doubleValue() * 0.90
+    enemySprite.layoutX = newWidth.doubleValue() * 0.85
   })
 
   enemySprite.translateX.onChange((_, _, changedTranslateX) =>
