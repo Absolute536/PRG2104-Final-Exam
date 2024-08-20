@@ -50,15 +50,15 @@
 
 .radio-button.easy {
     -fx-font-size: 1.5em;
-    -fx-graphic: url("../../../../images/G.png");
+    -fx-graphic: url("../../../../images/Gun-E.png");
 }
 
 .radio-button.medium {
-    -fx-graphic: url("../../../../images/G.png");
+    -fx-graphic: url("../../../../images/Gun-M.png");
 }
 
 .radio-button.hard {
-    -fx-graphic: url("../../../../images/G.png");
+    -fx-graphic: url("../../../../images/Gun-H.png");
 }
 
 .table-view {
@@ -93,12 +93,24 @@
 
 .text-flow-generated-word {
     -fx-font-size: 2em;
-    -fx-font-family: Calibri, Helvetica, Arial;
+    -fx-font-family: "Courier New", Courier, monospace;
+    -fx-font-weight: bold;
     -fx-alignment: center;
 }
 
 .label-score {
     -fx-font-family: "Courier New", Courier, monospace;
-    -fx-font-size: 1.5em;
+    -fx-font-size: 1.7em;
     -fx-font-weight: bold;
+}
+
+.pane-gameStage {
+    -fx-background-image: url("../../../../images/GameStageField.png");
+    -fx-background-repeat: repeat;
+}
+
+.pane-gameDefense {
+    -fx-background-image: url("../../../../images/GameStageDefense.png");
+    -fx-background-repeat: repeat;
+    -fx-background-size: contain;
 }
