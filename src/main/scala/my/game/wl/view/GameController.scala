@@ -49,12 +49,12 @@ class GameController (
   val currentScore: IntegerProperty = IntegerProperty(0)
   currentScore <== MainApp.game.player.points
 
-  val tTask = new TimerTask {
+  val moveEnemy = new TimerTask {
     override def run(): Unit = {
       enemySprite.translateX.value -= (gameStage.width.value - 150) / 15
     }
   }
-  MainApp.timer.schedule(tTask, 500, 1300)
+  MainApp.timer.schedule(moveEnemy, 500, 1300)
 
 
   private def refreshWord(): Unit = {
@@ -88,13 +88,13 @@ class GameController (
   def showPauseDialog(keyEvent: KeyEvent): Unit = {
 
     if (keyEvent.code == KeyCode.Escape) {
-      tTask.cancel()
+      moveEnemy.cancel()
       val pauseAlert = new Alert(AlertType.Confirmation) {
         title = "Paused"
         headerText = "Game Paused"
         contentText = "The Game is Paused.\nDo you want to go back to the Main Menu?"
-
       }.showAndWait()
+
 
       pauseAlert.get match {
         case ButtonType.OK => {
@@ -108,8 +108,6 @@ class GameController (
               enemySprite.translateX.value -= (gameStage.width.value - 150) / 15
             }
           }, 0, 1300)
-          println("Resume")
-
       }
     }
   }

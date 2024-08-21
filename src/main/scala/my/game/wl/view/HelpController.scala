@@ -23,7 +23,7 @@ class HelpController (
 
   val helpDescriptions: Array[String] = Array(
     "Defend against enemy attack. The enemy will march towards you continuously, survive for as long as possible and achieve the highest score. The game is over once the enemy crosses the defense line (red).",
-    "Type the words generated above the enemy to shoot and knock-back the enemy. The correctly typed character will turn red, and the typing sound will be played.\nEntering the whole word correctly to obtain points.",
+    "Type the words generated above the enemy to shoot and knock-back the enemy. The correctly typed character will turn red, and the typing sound will be played. Entering the whole word correctly to obtain points. \nPress \"Esc\" to pause the game",
     "Easy: 3 to 4 letter words. Each correct word typed gives 20 points.\nMedium: 5 letter words. Each correct word typed gives 35 points.\nHard: 6 to 7 letter words. Each correct word typed gives 50 points.")
 
   val helpImages: Array[Image] = Array(
