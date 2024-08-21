@@ -78,7 +78,7 @@ class GameController (
       refreshWord()
       currentCharacter = 0
       MainApp.game.player.increasePoints(MainApp.game.difficulty.value)
-      enemySprite.translateX.value += 40 * ((gameStage.width.value - 150) / 650) // 650 is the initial width of the gameStage (- width of defense area)
+      enemySprite.translateX.value += 30 * ((gameStage.width.value - 150) / 650) // 650 is the initial width of the gameStage (- width of defense area)
       score.text = s"Score: ${currentScore.value.toString}"
       MainApp.game.sound.playSoundEffect()
     }
