@@ -2,7 +2,7 @@ package my.game.wl.model
 
 import scalafx.beans.property.{IntegerProperty, StringProperty}
 
-class Player (val nameS: String) {
+class Player (nameS: String) {
   def this() = this("Player")
 
   val name: StringProperty = new StringProperty(nameS)
