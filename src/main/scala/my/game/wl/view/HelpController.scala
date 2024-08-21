@@ -27,9 +27,9 @@ class HelpController (
     "Easy: 3 to 4 letter words. Each correct word typed gives 20 points.\nMedium: 5 letter words. Each correct word typed gives 35 points.\nHard: 6 to 7 letter words. Each correct word typed gives 50 points.")
 
   val helpImages: Array[Image] = Array(
-    new Image(getClass.getResource("../../../../images/G.png").toString),
-    new Image(getClass.getResource("../../../../images/Screenshot (19).png").toString),
-    new Image(getClass.getResource("../../../../images/Screenshot (23).png").toString)
+    new Image(getClass.getResource("../../../../images/Help-Img1.png").toString),
+    new Image(getClass.getResource("../../../../images/Help-Img2.png").toString),
+    new Image(getClass.getResource("../../../../images/Help-Img3.png").toString)
   )
 
   def handleExitHelp(): Unit = {

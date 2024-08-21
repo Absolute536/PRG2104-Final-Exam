@@ -16,7 +16,7 @@
          <center>
             <ImageView fx:id="helpImage" cache="true" fitHeight="400.0" fitWidth="850.0" pickOnBounds="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../../../images/G.png" />
+                  <Image url="@../../../../images/Help-Img1.png" />
                </image>
                <viewport>
                   <Rectangle2D />
