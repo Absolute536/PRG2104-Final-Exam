@@ -52,11 +52,11 @@ object MainApp extends JFXApp {
     this.roots.setCenter(gameStage)
   }
 
-  // Reference: AddressApp Assignment from PRG2104 lab sessions
+  // Reference: AddressApp Assignment from PRG2104 lab sessions (by Chin. T.M.)
   def showGameOverDialog(player: Player): Boolean = {
-    val resource = getClass.getResourceAsStream("view/GameOverDialog.fxml")
+    val gameOver = getClass.getResourceAsStream("view/GameOverDialog.fxml")
     val loader = new FXMLLoader(null, NoDependencyResolver)
-    loader.load(resource);
+    loader.load(gameOver);
     val roots2  = loader.getRoot[jfxs.Parent]
     val control = loader.getController[GameOverDialogController#Controller]
 
