@@ -41,7 +41,7 @@ object MainApp extends JFXApp {
   }
   showMainMenu()
 
-  val game = new Game(new Player)
+  val game = new Game
   var timer = new Timer(true)
 
   def showGame(): Unit = {

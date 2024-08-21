@@ -8,7 +8,7 @@ class Game (
            var difficulty: Difficulty
            ) {
   // Default Difficulty is Medium
-  def this(_player: Player) = this(_player, Difficulty.medium)
+  def this() = this(new Player, Difficulty.medium)
 
   val wordSelector: WordSelector = new WordSelector
   var word: String = ""
