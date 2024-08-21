@@ -18,6 +18,7 @@ import java.util.TimerTask
 
 @sfxml
 class GameController (
+                       private val gameDefenseStage: Pane,
                        private val gameStage: Pane,
                        private val defenseLine: Line,
                        private val playerSprite: ImageView,
@@ -25,19 +26,22 @@ class GameController (
                        private val word: TextFlow,
                        private val score: Label
                      ) {
-
+  enemySprite.toFront()
+  playerSprite.toFront()
+  // Ensuring the defense area scales correctly with height
   // Add listener to stage's height and width to allow for proper displacement of defense line (100% of the height)
   gameStage.height.onChange((_, _, newHeight) => {
     defenseLine.endY = newHeight.doubleValue()
-    playerSprite.layoutY = newHeight.doubleValue() * 0.45
-    enemySprite.layoutY = newHeight.doubleValue() * 0.35
+    gameDefenseStage.prefHeight = newHeight.doubleValue()
+    playerSprite.layoutY = newHeight.doubleValue() * 0.40
+    enemySprite.layoutY = newHeight.doubleValue() * 0.30
   })
   gameStage.width.onChange((_, _, newWidth) => {
     enemySprite.layoutX = newWidth.doubleValue() * 0.85
   })
 
   enemySprite.translateX.onChange((_, _, changedTranslateX) =>
-    if (changedTranslateX.doubleValue() <= -gameStage.width.value) {
+    if (changedTranslateX.doubleValue() <= -gameStage.width.value + 150) {
       MainApp.timer.cancel()
       Platform.runLater(() => showGameOver())
     })
@@ -47,7 +51,7 @@ class GameController (
 
   val tTask = new TimerTask {
     override def run(): Unit = {
-      enemySprite.translateX.value -= gameStage.width.value / 15
+      enemySprite.translateX.value -= (gameStage.width.value - 150) / 15
     }
   }
   MainApp.timer.schedule(tTask, 500, 1300)
@@ -74,7 +78,7 @@ class GameController (
       refreshWord()
       currentCharacter = 0
       MainApp.game.player.increasePoints(MainApp.game.difficulty.value)
-      enemySprite.translateX.value += 40 * (gameStage.width.value / 850) // 850 is the initial width of the gameStage
+      enemySprite.translateX.value += 40 * ((gameStage.width.value - 150) / 650) // 650 is the initial width of the gameStage (- width of defense area)
       score.text = s"Score: ${currentScore.value.toString}"
       MainApp.game.sound.playSoundEffect()
     }
@@ -101,7 +105,7 @@ class GameController (
         case _ =>
           MainApp.timer.schedule(new TimerTask {
             override def run(): Unit = {
-              enemySprite.translateX.value -= gameStage.width.value / 15
+              enemySprite.translateX.value -= (gameStage.width.value - 150) / 15
             }
           }, 0, 1300)
           println("Resume")

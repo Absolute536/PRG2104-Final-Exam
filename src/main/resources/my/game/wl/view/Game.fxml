@@ -13,9 +13,18 @@
 
 <BorderPane fx:id="stageContainer" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#showPauseDialog" onKeyTyped="#validateCharacterTyped" prefHeight="650.0" prefWidth="1000.0" stylesheets="@GameTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="my.game.wl.view.GameController">
    <center>
-      <Pane fx:id="gameStage" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="pane-gameStage" BorderPane.alignment="CENTER">
+      <Pane fx:id="gameStage" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="611.0" styleClass="pane-gameStage" BorderPane.alignment="CENTER">
          <children>
-            <Line fx:id="defenseLine" endY="625.0" stroke="RED" strokeWidth="5.0" />
+            <Pane fx:id="gameDefenseStage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="611.0" styleClass="pane-gameDefense">
+               <children>
+                  <ImageView fx:id="playerSprite" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../../../images/Musketeer.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Line fx:id="defenseLine" endX="150.0" endY="625.0" startX="150.0" stroke="RED" strokeWidth="2.5" />
             <VBox fx:id="enemySprite" alignment="CENTER" layoutX="681.0" layoutY="200.0">
                <children>
                   <TextFlow fx:id="word" styleClass="text-flow-generated-word" textAlignment="CENTER" />
@@ -39,15 +48,4 @@
          </font>
       </Label>
    </top>
-   <left>
-      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="pane-gameDefense" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fx:id="playerSprite" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../../../../images/Musketeer.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </left>
 </BorderPane>
