@@ -13,7 +13,8 @@ import scalafx.scene.shape.Line
 import javafx.{scene => jfxs}
 import scalafx.beans.property.IntegerProperty
 import scalafx.scene.text.{Text, TextFlow}
-import java.util.TimerTask
+
+import java.util.{Timer, TimerTask}
 
 
 @sfxml
@@ -88,7 +89,7 @@ class GameController (
   def showPauseDialog(keyEvent: KeyEvent): Unit = {
 
     if (keyEvent.code == KeyCode.Escape) {
-      moveEnemy.cancel()
+      MainApp.timer.cancel()
       val pauseAlert = new Alert(AlertType.Confirmation) {
         title = "Paused"
         headerText = "Game Paused"
@@ -98,11 +99,11 @@ class GameController (
 
       pauseAlert.get match {
         case ButtonType.OK => {
-          MainApp.timer.cancel()
           MainApp.game.wordSelector.clearWordList()
           MainApp.showMainMenu()
         }
         case _ =>
+          MainApp.timer = new Timer(true)
           MainApp.timer.schedule(new TimerTask {
             override def run(): Unit = {
               enemySprite.translateX.value -= (gameStage.width.value - 150) / 15
