@@ -21,9 +21,9 @@ class DifficultyController (
   def startGame(): Unit = {
     val selectedDifficulty = difficultyChoice.getSelectedToggle.asInstanceOf[jfxs.control.RadioButton]
     selectedDifficulty.text.value match {
-      case "Easy" => MainApp.game.difficulty.value = Difficulty.easy
-      case "Medium" => MainApp.game.difficulty.value = Difficulty.medium
-      case "Hard" => MainApp.game.difficulty.value = Difficulty.hard
+      case "Easy" => MainApp.game.difficulty = Difficulty.easy
+      case "Medium" => MainApp.game.difficulty = Difficulty.medium
+      case "Hard" => MainApp.game.difficulty = Difficulty.hard
     }
     MainApp.timer = new Timer(true)
     MainApp.game.initialiseGame()
