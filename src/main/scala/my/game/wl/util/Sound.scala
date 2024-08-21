@@ -14,6 +14,7 @@ class Sound {
     new Media(getClass.getResource("../../../../media/KeySound3.mp3").toString)
   )
   backgroundMusic.autoPlay = true
+  backgroundMusic.volume = 0.75
 
   def playBackgroundMusic(): Unit = {
     backgroundMusic.play()
@@ -34,7 +35,7 @@ class Sound {
   }
 
   def enableSoundEffect(): Unit = {
-    soundEffect.volume = 0.50
+    soundEffect.volume = 0.5
   }
 
   def setTypingSound(num: Int): Unit = {
@@ -43,7 +44,7 @@ class Sound {
 
   def playTypingSound(): Unit = {
     val typingSound = new MediaPlayer(currentTypingSound)
-    typingSound.volume = 2.0
+    typingSound.volume = 3.0
     typingSound.startTime = new Duration(500)
     typingSound.seek(Duration.Zero)
     typingSound.play()
