@@ -15,7 +15,7 @@
    <center>
       <Pane fx:id="gameStage" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="pane-gameStage" BorderPane.alignment="CENTER">
          <children>
-            <Line fx:id="defenseLine" endY="625.0" stroke="RED" strokeWidth="2.5" />
+            <Line fx:id="defenseLine" endY="625.0" stroke="RED" strokeWidth="5.0" />
             <VBox fx:id="enemySprite" alignment="CENTER" layoutX="681.0" layoutY="200.0">
                <children>
                   <TextFlow fx:id="word" styleClass="text-flow-generated-word" textAlignment="CENTER" />
