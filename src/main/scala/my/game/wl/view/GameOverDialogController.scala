@@ -14,7 +14,7 @@ class GameOverDialogController (
                                private val playerNameField: TextField
                                ) {
 
-  gameOverImage.image = new Image(getClass.getResource("../../../../images/G.png").toString)
+  gameOverImage.image = new Image(getClass.getResource("../../../../images/GameOverImg.png").toString)
 
   var dialogStage: Stage = null
   private var _player: Player = null

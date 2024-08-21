@@ -39,7 +39,7 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <ImageView fx:id="gameOverImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <ImageView fx:id="gameOverImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
    </children>
