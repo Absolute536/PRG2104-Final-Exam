@@ -34,7 +34,7 @@
             </Label>
          </top>
          <bottom>
-            <Label fx:id="helpDesc" styleClass="label-content" text="Defend against enemy attack. The enemy will march towards you continuously, survive and achieve the highest score for as long as possible. The game is over once the enemy crosses the defense line (red)." wrapText="true" BorderPane.alignment="CENTER_LEFT">
+            <Label fx:id="helpDesc" styleClass="label-content" text="Defend against enemy attack. The enemy will march towards you continuously, survive for as long as possible and achieve the highest score. The game is over once the enemy crosses the defense line (red)." wrapText="true" BorderPane.alignment="CENTER_LEFT">
                <BorderPane.margin>
                   <Insets left="30.0" right="30.0" />
                </BorderPane.margin>
