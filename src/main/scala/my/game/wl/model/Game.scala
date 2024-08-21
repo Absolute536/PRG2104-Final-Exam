@@ -2,7 +2,6 @@ package my.game.wl.model
 
 
 import my.game.wl.util.{ScoreBoard, Sound, WordSelector}
-import scalafx.beans.property.StringProperty
 
 class Game (
            val player: Player,
@@ -12,7 +11,7 @@ class Game (
   def this(_player: Player) = this(_player, Difficulty.medium)
 
   val wordSelector: WordSelector = new WordSelector
-  var word: StringProperty = new StringProperty()
+  var word: String = ""
 
   val sound: Sound = new Sound
   sound.playBackgroundMusic()
@@ -23,11 +22,11 @@ class Game (
   def initialiseGame(): Unit = {
     player.points.value = 0
     wordSelector.initialiseWordList(difficulty)
-    word.value = wordSelector.generateWord()
+    word = wordSelector.generateWord()
   }
 
   def nextWord(): Unit = {
-    word.value = wordSelector.generateWord()
+    word = wordSelector.generateWord()
   }
 
   def recordScore(): Unit = {

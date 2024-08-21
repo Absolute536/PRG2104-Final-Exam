@@ -58,7 +58,7 @@ class GameController (
 
 
   private def refreshWord(): Unit = {
-    for (character <- MainApp.game.word.value) {
+    for (character <- MainApp.game.word) {
       word.children.add(new Text(character.toString))
     }
   }
@@ -66,7 +66,7 @@ class GameController (
 
   var currentCharacter: Int = 0
   def validateCharacterTyped(keyEvent: KeyEvent): Unit = {
-    if (MainApp.game.word.value(currentCharacter).toString == keyEvent.character) {
+    if (MainApp.game.word(currentCharacter).toString == keyEvent.character) {
       MainApp.game.sound.playTypingSound()
       word.children(currentCharacter).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
       currentCharacter += 1
