@@ -15,7 +15,7 @@
    <center>
       <Pane fx:id="gameStage" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="611.0" styleClass="pane-gameStage" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="gameDefenseStage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="611.0" styleClass="pane-gameDefense">
+            <Pane fx:id="gameDefenseArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="611.0" styleClass="pane-gameDefense">
                <children>
                   <ImageView fx:id="playerSprite" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                      <image>

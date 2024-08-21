@@ -18,7 +18,7 @@ import java.util.TimerTask
 
 @sfxml
 class GameController (
-                       private val gameDefenseStage: Pane,
+                       private val gameDefenseArea: Pane,
                        private val gameStage: Pane,
                        private val defenseLine: Line,
                        private val playerSprite: ImageView,
@@ -32,7 +32,7 @@ class GameController (
   // Add listener to stage's height and width to allow for proper displacement of defense line (100% of the height)
   gameStage.height.onChange((_, _, newHeight) => {
     defenseLine.endY = newHeight.doubleValue()
-    gameDefenseStage.prefHeight = newHeight.doubleValue()
+    gameDefenseArea.prefHeight = newHeight.doubleValue()
     playerSprite.layoutY = newHeight.doubleValue() * 0.40
     enemySprite.layoutY = newHeight.doubleValue() * 0.30
   })
