@@ -14,6 +14,7 @@ class Sound {
     new Media(getClass.getResource("../../../../media/KeySound3.mp3").toString)
   )
   backgroundMusic.autoPlay = true
+  backgroundMusic.cycleCount = MediaPlayer.Indefinite
   backgroundMusic.volume = 0.75
 
   def playBackgroundMusic(): Unit = {

@@ -37,7 +37,6 @@ object MainApp extends JFXApp {
     loader.load()
     val main = loader.getRoot[jfxs.layout.BorderPane]
     this.roots.setCenter(main)
-
   }
   showMainMenu()
 

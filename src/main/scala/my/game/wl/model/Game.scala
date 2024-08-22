@@ -1,6 +1,5 @@
 package my.game.wl.model
 
-
 import my.game.wl.util.{ScoreBoard, Sound, WordSelector}
 
 class Game (
@@ -31,7 +30,5 @@ class Game (
 
   def recordScore(): Unit = {
     scoreBoard.updateEntriesToFile(new Score(player.name.value, player.points.value, difficulty.mode))
-
   }
-
 }
