@@ -27,10 +27,14 @@ class GameController (
                        private val word: TextFlow,
                        private val score: Label
                      ) {
+  // Move the sprites to the front
   enemySprite.toFront()
   playerSprite.toFront()
   // Ensuring the defense area scales correctly with height
-  // Add listener to stage's height and width to allow for proper displacement of defense line (100% of the height)
+  /* Add listener to stage's height and width to allow for:
+      proper scaling of defense line (100% of height)
+      proper positioning of sprites
+  */
   gameStage.height.onChange((_, _, newHeight) => {
     defenseLine.endY = newHeight.doubleValue()
     gameDefenseArea.prefHeight = newHeight.doubleValue()
@@ -41,15 +45,18 @@ class GameController (
     enemySprite.layoutX = newWidth.doubleValue() * 0.85
   })
 
+  // Listener to check for the game over condition (based on the TranslateX of the enemy sprite
   enemySprite.translateX.onChange((_, _, changedTranslateX) =>
     if (changedTranslateX.doubleValue() <= -gameStage.width.value + 150) {
       MainApp.timer.cancel()
       Platform.runLater(() => showGameOver())
     })
 
+  // Score displayed on the game scene (bind to the player's points property)
   val currentScore: IntegerProperty = IntegerProperty(0)
   currentScore <== MainApp.game.player.points
 
+  // Schedule the movement of the enemy sprite to the Timer upon loading the scene & controller
   val moveEnemy = new TimerTask {
     override def run(): Unit = {
       enemySprite.translateX.value -= (gameStage.width.value - 150) / 15
@@ -57,7 +64,7 @@ class GameController (
   }
   MainApp.timer.schedule(moveEnemy, 500, 1300)
 
-
+  // Update the display of the generated word
   private def refreshWord(): Unit = {
     for (character <- MainApp.game.word) {
       word.children.add(new Text(character.toString))
@@ -65,14 +72,19 @@ class GameController (
   }
   refreshWord()
 
+  // Tracker variable that points to the current character the player needs to type
   var currentCharacter: Int = 0
   def validateCharacterTyped(keyEvent: KeyEvent): Unit = {
+
+    // Play typing sound and colour the character red if the character typed is correct
     if (MainApp.game.word(currentCharacter).toString == keyEvent.character) {
       MainApp.game.sound.playTypingSound()
       word.children(currentCharacter).asInstanceOf[jfxs.text.Text].fill = jfxs.paint.Color.RED
-      currentCharacter += 1
+      currentCharacter += 1 // also move the pointer/tracker one position forward
     }
 
+    // Check if the whole word is correctly typed
+    // Generate another word, update score and enemy knockback if true
     if (currentCharacter == word.children.length) {
       word.children.clear()
       MainApp.game.nextWord()
@@ -89,6 +101,7 @@ class GameController (
   def showPauseDialog(keyEvent: KeyEvent): Unit = {
 
     if (keyEvent.code == KeyCode.Escape) {
+      // Cancel timer upon pressing ESC
       MainApp.timer.cancel()
       val pauseAlert = new Alert(AlertType.Confirmation) {
         title = "Paused"
@@ -98,11 +111,13 @@ class GameController (
 
 
       pauseAlert.get match {
+        // Return to main menu if OK, clear the word list
         case ButtonType.OK => {
           MainApp.game.wordSelector.clearWordList()
           MainApp.showMainMenu()
         }
         case _ =>
+          // Assign another Timer to the timer in MainApp to allow resume of the game if CANCEL
           MainApp.timer = new Timer(true)
           MainApp.timer.schedule(new TimerTask {
             override def run(): Unit = {

@@ -40,7 +40,9 @@ object MainApp extends JFXApp {
   }
   showMainMenu()
 
+  // Game object
   val game = new Game
+  // Timer in the JFXApp thread to perform periodic execution of some codes
   var timer = new Timer(true)
 
   def showGame(): Unit = {

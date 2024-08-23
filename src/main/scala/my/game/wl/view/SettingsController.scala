@@ -13,7 +13,7 @@ class SettingsController (
                          private val soundEffect: ToggleGroup,
                          private val typingSound: ToggleGroup
                          ) {
-
+  // Method to ensure the selected state of settings will persist after switching scenes
   private def initialiseSettings(): Unit = {
     backgroundMusic.selectToggle(backgroundMusic.toggles(MainApp.game.sound.selectedSettings(0)))
     soundEffect.selectToggle(soundEffect.toggles(MainApp.game.sound.selectedSettings(1)))

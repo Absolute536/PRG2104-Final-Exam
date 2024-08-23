@@ -3,7 +3,7 @@ package my.game.wl.model
 import scalafx.beans.property.{IntegerProperty, StringProperty}
 
 class Player (nameS: String) {
-  def this() = this("Player")
+  def this() = this("Player") // Default Name is "Player"
 
   val name: StringProperty = new StringProperty(nameS)
   val points: IntegerProperty = IntegerProperty(0)

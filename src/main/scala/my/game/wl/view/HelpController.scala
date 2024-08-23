@@ -16,11 +16,13 @@ class HelpController (
                        private val nextButton: Button
                      ) {
 
+  // Listeners to ensure image dimension scales correctly with window size
   helpContent.width.onChange((_, _, newWidth) => helpImage.fitWidth = newWidth.doubleValue() * 0.80)
   helpContent.height.onChange((_, _, newHeight) => helpImage.fitHeight = newHeight.doubleValue() * 0.75)
 
+  // Collection of the subheadings in help pages
   val helpTitles: Array[String] = Array("Game Rule:", "How to Play:", "Difficulty Guide:")
-
+  // Collection of the text descriptions in help pages
   val helpDescriptions: Array[String] = Array(
     "Defend against enemy attack. The enemy will march towards you continuously, survive for as long as possible and achieve the highest score. The game is over once the enemy crosses the defense line (red).",
     "Type the words generated above the enemy to shoot and knock-back the enemy. The correctly typed character will turn red, and the typing sound will be played. Entering the whole word correctly to obtain points. \nPress \"Esc\" to pause the game.",
